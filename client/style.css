@@ -20,7 +20,7 @@ body{
 
 /* Front page */
 #graphics {
-   margin: 10px;
+    margin: 10px;
 }
 
 
@@ -58,9 +58,11 @@ body{
     background-color: wheat;
 }
 
-.postPreview .id,.comment{
+.postPreview .info,.comment{
     display: flex;
-    justify-content:end
+    flex-direction: column;
+    align-items:flex-end;
+    
 }
 
 .reactionCount{
