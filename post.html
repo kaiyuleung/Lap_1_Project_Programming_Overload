@@ -33,7 +33,7 @@
                             <p id="username" class="card-title m-0">User1</p>
                         </div>
                     </div>
-                    <div id="reactions">
+                    <div id="postReactions" class="reactions">
                         <span>emoji</span>
                         <span>gif</span>
                     </div>
@@ -45,21 +45,68 @@
             </div>
             
             <div id="postRow2" class="row">
-                <div class="col-2"></div>
+                <div class="col-2">
+                    <a href="./main.html">Back</a>
+                </div>
                 <div class="col mx-2 reactionCount">comment x emoji y</div>
-                <div class="col"></div>
-                <div id="postDateTime" class="col-2">time/date</div>
+                <div id="postDateTime" class="col">14:21 03/Oct/2022</div>
                 <div id="postID" class="col-1">id</div>
             </div>
 
         </div>
 
         <div id="commentSection" class="container-fluid">
-            <div id="commentSectionTitle" class="row p-2" style="height: 52.83px;">
+            <div id="commentSectionTitle" class="row p-2" style="height: 7%;">
                 <div class="col">
                     <h1>All Comments</h1>
                 </div>
             </div>
+
+            <div id="allComments" class="row" style="height: 73%;">
+                <div class="col">
+
+                    <div class="container-fluid">
+                        <div class="row comment">
+                            <div class="col-2 py-2">
+                                <div class="card">
+                                    <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                                    <div class="card-body p-1 border-top">
+                                        <p class="card-title m-0">User1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col py-2">
+                                <div class="container-fluid" style="height: 100%;">
+                                    <div class="row commentContent">
+                                        <p>I have a nice day too!</p>
+                                    </div>
+                                    <div class="row commentInfo">
+                                        <div class="col">14:21 03/Oct/2022</div>
+                                        <div class="col-2">id</div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-2 py-2 reactions">
+                                <div class="col commentReactions">
+                                    <span>emoji</span>
+                                    <span>gif</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row" style="height: 20%">
+                <div class="col">
+                    <h1>Your Comment</h1>
+                </div>
+            </div>
+
         </div>
 
     </div>
