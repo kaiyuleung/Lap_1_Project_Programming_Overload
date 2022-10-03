@@ -30,15 +30,13 @@ body{
 
 /* Front page */ 
 #frontPage {
-    background-image: url('https://i.pinimg.com/originals/35/c3/35/35c33515c3805aed94144aade44afdda.jpg');
+    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-#graphics {
-    margin: 10px;
-}
+
 
 
 #login {
@@ -52,7 +50,7 @@ body{
 
 .title {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-family: 'Marck Script', cursive;
     font-weight: 500;
