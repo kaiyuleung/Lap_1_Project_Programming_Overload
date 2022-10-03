@@ -8,8 +8,9 @@ body{
     background-color: grey;
 }
 
-#userInfoCard{
+.card{
     width: 60px;
+    text-align: center;
 }
 
 
@@ -19,7 +20,7 @@ body{
 
 /* Front page */
 #graphics {
-   margin: 30px;
+    margin: 30px;
 }
 
 
@@ -32,26 +33,13 @@ body{
 
 
 /* Main page */
-#mainPage{
-    height: 100%;
-}
 
 #mainPage #toPost{
     background-color: pink;
     height: 30%;
-    
-}
-
-#toPost #toPostTitle{
-    height: 10%;
-}
-
-#toPost #toPostContent{
-    height: 90%;
 }
 
 #toPost #userDetail, #post, #reaction{
-    height: 90%;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -61,6 +49,24 @@ body{
 #mainPage #allPosts{
     background-color: tan;
     height: 70%;
+}
+
+.postPreview{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: wheat;
+}
+
+.postPreview .id,.comment{
+    display: flex;
+    justify-content:end
+}
+
+.reactionCount{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+
 }
 
 

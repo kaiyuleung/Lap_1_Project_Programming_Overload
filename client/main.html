@@ -21,16 +21,18 @@
 </head>
 <body>
     
-    <div id="mainPage" class="container-fluid p-0" >
+    <div id="mainPage" class="container-fluid p-0" style="height: 100%;">
 
         <div id="toPost" class="container-fluid" >
+
             <div id="toPostTitle" class="row p-2" style="height: 15%;">
                 <div class="col">
                     <h1>Make a post</h1>
                 </div>
             </div>
+
             <form id="toPostContent" class="row" style="height: 85%;">
-                <div id="userDetail" class="col-2 text-center py-2">
+                <div id="userDetail" class="col-2 pt-2 pb-4">
                     <div id="userInfoCard"  class="card">
                         <img id="userIcon" src="./img/usrIcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
                         <div class="card-body p-1 border-top">
@@ -38,32 +40,94 @@
                         </div>
                     </div>
                 </div>
-                <div id="post" class="col pt-2 pb-5">
-                    <input type="text" placeholder="Title" style="width: 90%;">
-                    <input type="text" placeholder="Share your story today ..." style="width: 90%; height:80%;">
+                <div id="post" class="col pt-2 pb-4">
+                    <div class="input-group mb-3" style="width: 90%;">
+                        <input type="text" class="form-control" placeholder="Title">
+                    </div>
+                    <div class="input-group mb-3" style="width: 90%; height:80%;">
+                        <input type="text" class="form-control" placeholder="Share your story today ..." >
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+                    </div>
                 </div>
-                <div id="reaction" class="col-2">
-                    <p>reactions</p>
+                <div id="reaction" class="col-2 pt-2 pb-4">
+
+                    <div id="emoji" class="btn-group dropstart">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 93px; width: 80px;">
+                            Emoji
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>Like</li>
+                            <li>Happy</li>
+                            <li>Sad</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>None</li>
+                        </ul>
+                    </div>
+
+                    <div id="gif" class="btn-group dropstart">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 93px; width: 80px;">
+                            Gif
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>Like</li>
+                            <li>Happy</li>
+                            <li>Sad</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>None</li>
+                        </ul>
+                    </div>
+
                 </div>
+
             </form>
+
         </div>
 
         <div id="allPosts" class="container-fluid">
-            <div id="" class="row">
+
+            <div id="allPostsTitle" class="row p-2" style="height: 5%;">
                 <div class="col">
-                    <h1>All the posts</h1>
+                    <h1>Make a post</h1>
                 </div>
             </div>
 
-            <div id="" class="row">
+            <div id="allPostsContent" class="row" style="height: 95%;">
                 <div class="col">
-                    <h1>posts</h1>
-                    <h1>posts</h1>
-                    <h1>posts</h1>
+
+                    <div class="container-fluid postPreview">
+                        <div class="row">
+                            <div class="col-2 py-2">
+                                <div class="card">
+                                    <img src="./img/usrIcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                                    <div class="card-body p-1 border-top">
+                                        <p class="card-title m-0">User1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col py-2">
+                                <h5>Happy Day!</h5>
+                                <p>Today, I ...<br>...</p>
+                            </div>
+                            <div class="col-2 py-2 id">
+                                <span>id</span>
+                            </div>
+                        </div>
+                        <div class="row pb-2 ">
+                            <div class="col-2"></div>
+                            <div class="col ms-2 reactionCount">comment x emoji y</div>
+                            <div class="col"></div>
+                            <div class="col-2 comment">
+                                <button>Comment</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
 
