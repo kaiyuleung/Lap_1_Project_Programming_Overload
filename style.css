@@ -18,7 +18,14 @@ body{
 
 
 
-/* Front page */
+/* Front page */ 
+#frontPage {
+    background-image: url('https://i.pinimg.com/originals/35/c3/35/35c33515c3805aed94144aade44afdda.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #graphics {
     margin: 10px;
 }
@@ -29,9 +36,18 @@ body{
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-
+    justify-content: center;
+    font-family: 'Handlee', cursive;
 }
 
+.title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Marck Script', cursive;
+    font-weight: 500;
+    font-size: 500%;
+}
 
 
 /* Main page */
