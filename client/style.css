@@ -1,0 +1,76 @@
+html, body{height: 100%;}
+
+body{
+    min-width: 400px;
+    min-height: 450px;
+    max-height: 2048px;
+    max-width: 3090px;
+    background-color: grey;
+}
+
+.card{
+    width: 60px;
+    text-align: center;
+}
+
+
+
+
+
+
+/* Front page */
+#graphics {
+    margin: 10px;
+}
+
+
+#login {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+
+
+/* Main page */
+
+#mainPage #toPost{
+    background-color: pink;
+    height: 30%;
+}
+
+#toPost #userDetail, #post, #reaction{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+}
+
+#mainPage #allPosts{
+    background-color: tan;
+    height: 70%;
+}
+
+.postPreview{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: wheat;
+}
+
+.postPreview .info,.comment{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    
+}
+
+.reactionCount{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+
+}
+
+
