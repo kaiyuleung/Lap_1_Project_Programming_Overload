@@ -1,5 +1,14 @@
 /* Front page */
+#graphics {
+   margin: 40px;
+}
 
+
+#login {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
 
 
 /* Main page */
