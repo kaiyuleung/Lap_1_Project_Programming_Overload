@@ -28,10 +28,15 @@ body{
 
 
 
-/* Front page */
-#graphics {
-    margin: 10px;
+/* Front page */ 
+#frontPage {
+    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
+
 
 
 #login {
@@ -39,9 +44,18 @@ body{
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-
+    justify-content: center;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Marck Script', cursive;
+    font-weight: 500;
+    font-size: 500%;
+}
 
 
 /* Main.html */
