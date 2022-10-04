@@ -13,8 +13,6 @@ function submitPost(e){
         content: e.target.postContent.value,
         emoji: e.target.emoji.value
         // gif: e.target.
-        // commentCount: e.target.
-        // dopeCount: e.target.
     }
     
 

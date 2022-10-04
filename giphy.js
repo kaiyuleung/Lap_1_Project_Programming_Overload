@@ -39,6 +39,8 @@ async function getGifs(event) {
     searchInput.value = "";
 }
 
-form.addEventListener("submit", getGifs);
+// form.addEventListener("submit", getGifs);
+
+document.getElementById('findGif').addEventListener('click',getGifs);
 
 
