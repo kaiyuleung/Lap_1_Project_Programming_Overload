@@ -94,7 +94,7 @@ body{
     height: 70%;
 }
 
-#postCol1,#postReactions{
+#postCol1{
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -104,35 +104,6 @@ body{
 #postContent{
     border: 1px solid black;
     border-radius: 5px;
-    background-color: white;
-}
-
-.reactions span{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: grey;
-    color: white;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#postRow2 a{
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: grey;
-    text-decoration: none;
-    color: white;
-    /* padding: 4px; */
-}
-
-#postDateTime,#postID{
-    display: flex;
-    justify-content: end;
 }
 
 .comment{
@@ -144,19 +115,12 @@ body{
 .commentContent{
     border: 1px solid black;
     border-radius: 5px;
-    background-color: white;
     display: flex;
     align-items: center;
-    height: 85%;
 }
 
-/* .commentReactions{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-end;
-} */
-.commentInfo div{
-    height: 15%;
-    display: flex;
-    justify-content: end;
+#postComment{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
