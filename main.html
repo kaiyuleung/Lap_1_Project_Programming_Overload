@@ -12,6 +12,7 @@
 
     <!-- CSS & JS -->
     <link rel="stylesheet" href="./style.css">
+    <script defer src="./index.js"></script>
 
     <!-- Title & Icon -->
     <title>Programming Overload Journal</title>
@@ -42,11 +43,11 @@
                 </div>
                 <div id="postFilling" class="col pt-2 pb-4">
                     <div class="input-group mb-3" style="width: 90%;">
-                        <input type="text" class="form-control" placeholder="Title">
+                        <input id="postTitle" type="text" class="form-control" placeholder="Title">
                     </div>
                     <div class="input-group mb-3" style="width: 90%; height:80%;">
-                        <input type="text" class="form-control" placeholder="Share your story today ..." >
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+                        <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." >
+                        <input class="btn btn-outline-secondary" type="Submit"  value="Submit"></input>
                     </div>
                 </div>
                 <div id="reaction" class="col-2 pt-2 pb-4 mb-3">
@@ -56,11 +57,15 @@
                             Emoji
                         </button>
                         <ul class="dropdown-menu">
-                            <li>Like</li>
-                            <li>Happy</li>
-                            <li>Sad</li>
+                            <li><input type="radio" id="like" name="emoji" value="like">
+                            <label for="like">Like</label></li>
+                            <li><input type="radio" id="happy" name="emoji" value="happy">
+                            <label for="happy">Happy</label></li>
+                            <li><input type="radio" id="sad" name="emoji" value="sad">
+                            <label for="sad">Sad</label></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>None</li>
+                            <li><input type="radio" id="none" name="emoji" value="none" checked>
+                            <label for="none">None</label></li>
                         </ul>
                     </div>
 
@@ -90,8 +95,9 @@
                     <h1>All posts</h1>
                 </div>
             </div>
+
             <!-- !Example post entry -->
-            <div class="row mb-2 px-4">
+            <div id="examplePost" class="row mb-2 px-4">
                 <div class="container-fluid postPreview">
                     <div class="row">
                         <div class="col-2 py-2 d-flex justify-content-center">
@@ -107,7 +113,7 @@
                             <p>Today, I ...<br>...</p>
                         </div>
                         <div class="col-2 mt-2 d-flex justify-content-end">
-                            <a role="button" class="btn btn-secondary" href="./post.html" style="height:3em;">View</a>
+                            <a role="button" class="btn btn-secondary" href="./post.html" style="height:40%;">View</a>
                         </div>
                     </div>
                     <div class="row pb-2">
