@@ -2,7 +2,6 @@ document.getElementById('toPostContent').addEventListener('submit',submitPost);
 
 function submitPost(e){
     e.preventDefault();
-
     const postData = {
         username: "User1",
         icon: './img/userlcon/defaultUser.png',
@@ -40,7 +39,7 @@ function appendPost(post){
     const view = document.createElement('a');
     const r2 = document.createElement('div');
     const r2c1 = document.createElement('div');
-    const dope = document.createElement('div');
+    const dope = document.createElement('button');
     const r2c2 = document.createElement('div');
     const r2c3 = document.createElement('div');
     const timeDate = document.createElement('span');
@@ -72,7 +71,6 @@ function appendPost(post){
     r2c1.classList.add('col-2', 'd-flex', 'justify-content-center');
     dope.classList.add('btn', 'btn-sm', 'btn-outline-danger');
     dope.textContent = "DOPE";
-    // dope.appendChild(document.createTextNode("DOPE"));
     r2c2.classList.add('col',  'ms-2',  'reactionCount',  'd-flex',  'justify-content-start');
     //!comment count and dope count//
     r2c2.appendChild(document.createTextNode("comment x DOPE y"));
