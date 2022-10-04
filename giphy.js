@@ -46,5 +46,4 @@ async function getGifs(event) {
 
 
 document.getElementById('findGif').addEventListener('click',getGifs);
-document.getElementById('results').addEventListener('click', submitPost)
 

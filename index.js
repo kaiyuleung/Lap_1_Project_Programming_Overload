@@ -5,22 +5,17 @@ function submitPost(e){
     const postData = {
         username: "User1",
         icon: './img/userlcon/defaultUser.png',
-        ID: 0,
+        id: 0,
         time: new Date().toLocaleTimeString('en-GB'),
         date: new Date().toLocaleDateString('en-GB'),
         title: e.target.postTitle.value,
         content: e.target.postContent.value,
-        // emoji: e.target.
+        emoji: e.target.emoji.value
         // gif: e.target.
-        // commentCount: e.target.
-        // dopeCount: e.target.
     }
-    
 
-    console.log(e.target.emoji.value);
-    // console.log(postData);
 
-    // appendPost(postData);
+    appendPost(postData);
     
 }
 
@@ -108,12 +103,6 @@ function appendPost(post){
     r2c4.appendChild(id);
 
     //!Somehow tell post.html which post to expect to fetch
-
-
-
-
-
-
 
 
 // todo Example appending post
