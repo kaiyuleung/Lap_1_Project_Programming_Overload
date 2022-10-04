@@ -1,7 +1,7 @@
 "use strict";
 
 const apiUrl = 'https://api.giphy.com/v1/gifs/search?api_key=XEAkZeR976diLYKcNhMlxn8S9Uvbbfza&rating=pg&q=';
-const limitVal = 6;
+const limitVal = 4;
 const main = document.querySelector(".results");
 const form = document.querySelector(".form");
 const searchInput = document.getElementById("search");
