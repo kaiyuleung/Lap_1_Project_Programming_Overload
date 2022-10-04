@@ -1,4 +1,4 @@
-//
+// Post Attributes
 const title = document.querySelector("#journal-title");
 const content = document.querySelector("#journal-content");
 const icon = document.querySelector("#journal-icon");
@@ -10,7 +10,6 @@ getId();
 
 function getId() {
 	const id = localStorage.getItem("id");
-
 	getAndSetSpecificJournal(id);
 }
 
@@ -49,7 +48,7 @@ async function getAndSetSpecificJournal(id) {
 	}
 
 	function appendComment(comment) {
-		// Grabhold directory
+		// Grab hold directory
 		const dir = document.getElementById("exampleComment");
 
 		// Create elements
