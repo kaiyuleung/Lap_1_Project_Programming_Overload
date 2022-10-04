@@ -2,8 +2,8 @@
 
 const apiUrl = 'https://api.giphy.com/v1/gifs/search?api_key=XEAkZeR976diLYKcNhMlxn8S9Uvbbfza&rating=pg&q=';
 const limitVal = 4;
-const main = document.querySelector(".results");
-const form = document.querySelector(".form");
+const main = document.getElementById("results");
+const form = document.getElementById("gifForm");
 const searchInput = document.getElementById("search");
 
 function clearPreviousResults() {
@@ -14,14 +14,18 @@ function clearPreviousResults() {
 
 function createImages(gifs) {
     for (const gif of gifs) {
-        const img = document.createElement("img");
+  
         const gifSrc = gif.images.fixed_height.url;
+        const input = document.createElement("input");
 
-        img.src = gifSrc;
-        img.alt = "Gif";
-        img.classList.add("results-gif");
-        
-        main.append(img);
+        input.type = "image"
+        input.name = "gif"
+        input.src = gifSrc
+        input.alt = "gif"
+        input.classList.add("results-gif")
+
+     
+        main.append(input)
     }
 }
 
@@ -39,8 +43,8 @@ async function getGifs(event) {
     searchInput.value = "";
 }
 
-// form.addEventListener("submit", getGifs);
+
 
 document.getElementById('findGif').addEventListener('click',getGifs);
-
+document.getElementById('results').addEventListener('click', submitPost)
 
