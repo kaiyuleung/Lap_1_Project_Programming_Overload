@@ -1,126 +1,124 @@
 /* Root */
-:root{
-    --bg-major: pink;
-    --bg-minor: rgb(255, 216, 144);
+:root {
+	--bg-major: pink;
+	--bg-minor: rgb(255, 216, 144);
 }
 
-html, body{height: 100%;}
-
-body{
-    min-width: 550px;
-    min-height: 450px;
-    max-height: 2048px;
-    max-width: 3090px;
-    background-color: rgba(0, 0, 0, 0.435);
+html,
+body {
+	height: 100%;
 }
 
-.card{
-    width: 60px;
-    text-align: center;
+body {
+	min-width: 550px;
+	min-height: 450px;
+	max-height: 2048px;
+	max-width: 3090px;
+	background-color: rgba(0, 0, 0, 0.435);
 }
 
-.reactionCount{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
+.card {
+	width: 60px;
+	text-align: center;
 }
 
+.reactionCount {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: white;
+}
 
-
-
-/* Front page */ 
+/* Front page */
 #frontPage {
-    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background-image: url("https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
-
-
-
 
 #login {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'Nanum Gothic', sans-serif;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Marck Script', cursive;
-    font-weight: 500;
-    font-size: 500%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Marck Script", cursive;
+	font-weight: 500;
+	font-size: 500%;
 }
-
 
 /* Main.html */
 
-#mainPage #toPost{
-    background-color: var(--bg-major);
-    height: 30%;
+#mainPage #toPost {
+	background-color: var(--bg-major);
+	height: 30%;
 }
 
-#toPost #userDetail, #postFilling, #reaction{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
+#toPost #userDetail,
+#postFilling,
+#reaction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
-#mainPage #allPosts{
-    background-color: tan;
-    height: 70%;
+#mainPage #allPosts {
+	background-color: tan;
+	height: 70%;
 }
 
-.postPreview{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: wheat;
+.postPreview {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: wheat;
 }
 
 /* Post.html */
-#post{
-    background-color: var(--bg-major);
-    height: 30%;
+#post {
+	background-color: var(--bg-major);
+	height: 30%;
 }
 
-#commentSection{
-    background-color: var(--bg-minor);
-    height: 70%;
+#commentSection {
+	background-color: var(--bg-minor);
+	height: 100%;
 }
 
-#postCol1{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
+#postCol1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
-#postContent{
-    border: 1px solid black;
-    border-radius: 5px;
+#postContent {
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
-.comment{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: wheat;
+.comment {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: wheat;
 }
 
-.commentContent{
-    border: 1px solid black;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
+.commentContent {
+	border: 1px solid black;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
 }
 
-#postComment{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+#postComment {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }

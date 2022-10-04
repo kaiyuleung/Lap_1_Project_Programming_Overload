@@ -4,6 +4,7 @@ const content = document.querySelector("#journal-content");
 const icon = document.querySelector("#journal-icon");
 const date = document.querySelector("#journal-date");
 const idElm = document.querySelector("#journal-id");
+const username = document.querySelector("#journal-username");
 
 getId();
 
@@ -25,6 +26,7 @@ async function getAndSetSpecificJournal(id) {
 	icon.src = data.icon;
 	date.textContent = data.time + " " + data.date;
 	idElm.textContent = data.id;
+	username.textContent = data.username;
 	// Get all comments
 	document
 		.getElementById("postComment")
