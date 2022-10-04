@@ -1,17 +1,24 @@
-document.getElementById('toPostContent').addEventListener('submit',submitPost);
+// document.getElementById('toPostContent').addEventListener('submit',submitPost);
+document.getElementById('toPostSubmit').addEventListener('click',submitPost);
 
 function submitPost(e){
     e.preventDefault();
+
+console.log(document.getElementById('results'));
+
     const postData = {
         username: "User1",
         icon: './img/userlcon/defaultUser.png',
         id: 0,
         time: new Date().toLocaleTimeString('en-GB'),
         date: new Date().toLocaleDateString('en-GB'),
-        title: e.target.postTitle.value,
-        content: e.target.postContent.value,
-        emoji: e.target.emoji.value
-        // gif: e.target.
+        // title: e.target.postTitle.value,
+        // content: e.target.postContent.value,
+        // emoji: e.target.emoji.value
+        title: document.getElementById('postTitle').value,
+        content: document.getElementById('postContent').value,
+        emoji: document.getElementById('results').value,
+        // gif: document.getElementById('gif').value
     }
 
 

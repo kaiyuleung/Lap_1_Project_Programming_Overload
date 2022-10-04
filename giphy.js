@@ -13,8 +13,9 @@ function clearPreviousResults() {
 }
 
 function createImages(gifs) {
+    let i = 0;
     for (const gif of gifs) {
-  
+
         const gifSrc = gif.images.fixed_height.url;
         const input = document.createElement("input");
 
@@ -22,10 +23,12 @@ function createImages(gifs) {
         input.name = "gif"
         input.src = gifSrc
         input.alt = "gif"
+        input.id = `gif${i}`
         input.classList.add("results-gif")
 
-     
+
         main.append(input)
+        i++;
     }
 }
 
