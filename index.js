@@ -5,6 +5,7 @@ function submitPost(e){
     e.preventDefault();
 
 console.log(document.getElementById('results'));
+console.log(document.getElementById('emoji'));
 
     const postData = {
         username: "User1",
@@ -17,8 +18,8 @@ console.log(document.getElementById('results'));
         // emoji: e.target.emoji.value
         title: document.getElementById('postTitle').value,
         content: document.getElementById('postContent').value,
-        emoji: document.getElementById('results').value,
-        // gif: document.getElementById('gif').value
+        emoji: document.getElementById('emoji').value,
+        gif: document.getElementById('results').value
     }
 
 

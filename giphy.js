@@ -44,6 +44,8 @@ async function getGifs(event) {
 
     createImages(gifData);
     searchInput.value = "";
+    // refresh the index.js
+    
 }
 
 
