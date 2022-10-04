@@ -24,42 +24,133 @@
     <div id="postPage" class="container-fluid p-0" style="height: 100%;">
 
         <div id="post" class="container-fluid">
-
             <div class="row" style="height: 90%;">
                 <div id="postCol1" class="col-2 py-2">
+                    <a role="button" class="btn btn-secondary" href="./main.html">Back</a>
                     <div class="card">
-                        <img id="userIcon" src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                        <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
                         <div class="card-body p-1 border-top">
-                            <p id="username" class="card-title m-0">User1</p>
+                            <p class="card-title m-0">User1</p>
                         </div>
                     </div>
-                    <div id="reactions">
-                        <span>emoji</span>
-                        <span>gif</span>
-                    </div>
+                    <img src="" alt="emoji" height="80px" width="80px">
+                    <img src="" alt="gif" height="80px" width="80px">
                 </div>
                 <div id="postContent" class="col m-2">
                     <h5 class="my-2">Happy Day!</h5>
                     <p class="mx-2">Today, I went to the beach.<br> It was great.</p>
                 </div>
             </div>
-            
-            <div id="postRow2" class="row">
-                <div class="col-2"></div>
-                <div class="col mx-2 reactionCount">comment x emoji y</div>
-                <div class="col"></div>
-                <div id="postDateTime" class="col-2">time/date</div>
-                <div id="postID" class="col-1">id</div>
+            <div class="row">
+                <div class="col-2 d-flex justify-content-center">
+                    <button class="btn btn-sm btn-outline-danger">DOPE</button>
+                </div>
+                <div class="col mx-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>
+                <div class="col d-flex justify-content-end">14:21 03/Oct/2022</div>
+                <div class="col-1 d-flex justify-content-end">id</div>
             </div>
-
         </div>
 
+        
         <div id="commentSection" class="container-fluid">
-            <div id="commentSectionTitle" class="row p-2" style="height: 52.83px;">
+            <div id="commentSectionTitle" class="row p-2" style="height: 7%;">
                 <div class="col">
                     <h1>All Comments</h1>
                 </div>
             </div>
+
+            <!-- todo fix scroll problem -->
+            <div class="row" style="height: 78%;">
+                <div class="col">
+                    <!-- !Example comment entry -->
+                    <div id="exampleComment" class="row mb-2 px-4">
+                        <div class="container-fluid comment">
+                            <div class="row">
+                                <div class="col-2 py-2 d-flex justify-content-center">
+                                    <div class="card">
+                                        <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                                        <div class="card-body p-1 border-top">
+                                            <p class="card-title m-0">User1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m-2 commentContent">
+                                    <p>I have a nice day too!</p>
+                                </div>
+                                <div class="col-4 py-2 d-flex justify-content-between">
+                                    <img src="" alt="emoji" height="80px" width="80px">
+                                    <img src="" alt="gif" height="80px" width="80px">
+                                </div>
+                            </div>
+                            <div class="row pb-2">
+                                <div class="col-2 d-flex justify-content-center">
+                                    <button class="btn btn-sm btn-outline-danger">DOPE</button>
+                                </div>
+                                <div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>
+                                <div class="col d-flex justify-content-end">
+                                    <span>14:21 03/Oct/2022</span>
+                                </div>
+                                <div class="col-1 d-flex justify-content-end">
+                                    <span>id</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- todo New Comment Append Here -->
+
+                </div>
+            </div>
+
+            <div id="postComment" class="row border-top" >
+                <div class="container-fluid">
+                    <div class="row m-3">
+                        <div class="col-2">
+                            <div class="card">
+                                <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                                <div class="card-body p-1 border-top">
+                                    <p class="card-title m-0">User1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3" style="width: 100%; height:100%;">
+                                <input type="text" class="form-control" placeholder="Share your story today ..." >
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+                            </div>
+                        </div>
+                        <div class="col-2 ">
+                            <div class="btn-group dropstart">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Emoji
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>Like</li>
+                                    <li>Happy</li>
+                                    <li>Sad</li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>None</li>
+                                </ul>
+                            </div>
+        
+                            <div class="btn-group dropstart">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Gif
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>Like</li>
+                                    <li>Happy</li>
+                                    <li>Sad</li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>None</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
