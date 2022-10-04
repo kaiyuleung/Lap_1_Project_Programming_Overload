@@ -12,7 +12,9 @@
 
     <!-- CSS & JS -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./giphy.css"
     <script defer src="./index.js"></script>
+    <script defer src="./giphy.js"></script>
 
     <!-- Title & Icon -->
     <title>Programming Overload Journal</title>
@@ -43,10 +45,10 @@
                 </div>
                 <div id="postFilling" class="col pt-2 pb-4">
                     <div class="input-group mb-3" style="width: 90%;">
-                        <input id="postTitle" type="text" class="form-control" placeholder="Title">
+                        <input id="postTitle" type="text" class="form-control" placeholder="Title" maxlength="50">
                     </div>
                     <div class="input-group mb-3" style="width: 90%; height:80%;">
-                        <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." >
+                        <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." maxlength="280">
                         <input class="btn btn-outline-secondary" type="Submit"  value="Submit"></input>
                     </div>
                 </div>
@@ -69,18 +71,38 @@
                         </ul>
                     </div>
 
-                    <div class="btn-group dropstart">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 93px; width: 80px;">
-                            Gif
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>Like</li>
-                            <li>Happy</li>
-                            <li>Sad</li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>None</li>
-                        </ul>
+                    <!-- GIF Button -->
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Gif
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="giphContainer">
+                                        <form id="gifForm" class="form">
+                                            <div class="form-field">
+                                                <input type="text" class="form-field-input" id="search" placeholder="Search for gifs">
+                                                <input id="findGif" type="submit" value="Get Gifs" class="form-field-submit">
+                                            </div>
+                                        </form>
+                                        <main id="results" class="results">
+                                            
+                                        </main>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary">Add gif</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Button section ends -->
+
 
                 </div>
 
