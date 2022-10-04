@@ -32,7 +32,7 @@ body {
 
 .form-field {
     display: flex;
-    margin-bottom: 5rem;
+    margin-bottom: 5px;
     flex-grow: 1;
 }
 
@@ -51,10 +51,8 @@ body {
 }
 
 .form-field-submit {
-    padding: .75rem 2.5rem;
     text-transform: uppercase;
     letter-spacing: .08em;
-    font-size: 1rem;
     cursor: pointer;
     border: none;
     border-top-right-radius: 4px;
@@ -62,22 +60,21 @@ body {
 
     color: #222;
     font-weight: 500;
-    background-color: #9ae6b4;
-
+    background-color: pink;
     transition: background-color 150ms ease-in-out;
 }
 
 .form-field-submit:hover {
-    background-color: hsl(141, 60%, 65%);
+    background-color: hsl(141, 25%, 86%);
 }
 
 .results {
-    width: 75rem;
-    max-width: 90%;
-    margin: 0 auto 4rem auto;
+    width: 30rem;
+    max-width: 95%;
+    margin: 0 auto 5px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap: 0.5rem;
     grid-auto-flow: dense;
 }
 
@@ -99,4 +96,16 @@ body {
         font-size: .95rem;
         padding: .5rem 1.5rem;
     }
+}
+
+.giphContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 300px;
+    border: black solid;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    padding: 0%;
 }
