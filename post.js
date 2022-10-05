@@ -22,7 +22,9 @@ function submitComment() {
 	console.log(newComment);
 	// Check character length
 	if (newComment > 220)
-		return window.alert("Sorry too long, enter less than 220 characters.");
+		return window.alert(
+			"Sorry too long, please enter less than 220 characters."
+		);
 	// get form data
 	const commentData = {
 		commentId: "",
@@ -156,7 +158,7 @@ async function appendComment(postId) {
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `ID: ${comment.commentId.substring(0, 4)}`;
+				id.textContent = `ID: ${comment.commentId}`;
 
 				// Append elements
 				dir.after(dirRow);
@@ -184,39 +186,39 @@ async function appendComment(postId) {
 	} catch (error) {
 		console.log(error);
 	}
-
-	//todo Example Comment Entry
-	// <div class="row mb-2 px-4">  //?dirRow//
-	//     <div class="container-fluid comment">    //?container//
-	//         <div class="row">    //?r1//
-	//             <div class="col-2 py-2 d-flex justify-content-center">   //?r1c1//
-	//                 <div class="card">  //?userCard//
-	//                     <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon"> //?userIcon//
-	//                     <div class="card-body p-1 border-top">  //?userCardBody//
-	//                         <p class="card-title m-0">User1</p> //?username//
-	//                     </div>
-	//                 </div>
-	//             </div>
-	//             <div class="col m-2 commentContent">  //?r1c2//
-	//                 <p>I have a nice day too!</p>  //?content//
-	//             </div>
-	//             <div class="col-4 py-2 d-flex justify-content-between">  //?r1c3//
-	//                 <img src="" alt="emoji" height="80px" width="80px">  //?emoji//
-	//                 <img src="" alt="gif" height="80px" width="80px">    //?gif//
-	//             </div>
-	//         </div>
-	//         <div class="row pb-2">   //?r2//
-	//             <div class="col-2 d-flex justify-content-center">    //?r2c1//
-	//                 <button class="btn btn-sm btn-outline-danger">DOPE</button>  //?dope//
-	//             </div>
-	//             <div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>  //?r2c2//
-	//             <div class="col d-flex justify-content-end"> //?r2c3//
-	//                 <span>14:21 03/Oct/2022</span>   //?timeDate//
-	//             </div>
-	//             <div class="col-1 d-flex justify-content-end"> //?r2c4//
-	//                 <span>id</span>  //?id//
-	//             </div>
-	//         </div>
-	//     </div>
-	// </div>
 }
+
+//todo Example Comment Entry
+// <div class="row mb-2 px-4">  //?dirRow//
+//     <div class="container-fluid comment">    //?container//
+//         <div class="row">    //?r1//
+//             <div class="col-2 py-2 d-flex justify-content-center">   //?r1c1//
+//                 <div class="card">  //?userCard//
+//                     <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon"> //?userIcon//
+//                     <div class="card-body p-1 border-top">  //?userCardBody//
+//                         <p class="card-title m-0">User1</p> //?username//
+//                     </div>
+//                 </div>
+//             </div>
+//             <div class="col m-2 commentContent">  //?r1c2//
+//                 <p>I have a nice day too!</p>  //?content//
+//             </div>
+//             <div class="col-4 py-2 d-flex justify-content-between">  //?r1c3//
+//                 <img src="" alt="emoji" height="80px" width="80px">  //?emoji//
+//                 <img src="" alt="gif" height="80px" width="80px">    //?gif//
+//             </div>
+//         </div>
+//         <div class="row pb-2">   //?r2//
+//             <div class="col-2 d-flex justify-content-center">    //?r2c1//
+//                 <button class="btn btn-sm btn-outline-danger">DOPE</button>  //?dope//
+//             </div>
+//             <div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>  //?r2c2//
+//             <div class="col d-flex justify-content-end"> //?r2c3//
+//                 <span>14:21 03/Oct/2022</span>   //?timeDate//
+//             </div>
+//             <div class="col-1 d-flex justify-content-end"> //?r2c4//
+//                 <span>id</span>  //?id//
+//             </div>
+//         </div>
+//     </div>
+// </div>
