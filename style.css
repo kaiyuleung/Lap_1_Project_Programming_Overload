@@ -62,7 +62,7 @@ body {
 
 /* !Front page */ 
 #frontPage {
-    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-image: url('./img/indexBackgroundTransparent.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
