@@ -121,7 +121,7 @@ async function appendPost() {
 			view.classList.add("btn", "btn-secondary");
 			// view.href = "./post.html";
 			view.style.height = "40px";
-			view.appendChild(document.createTextNode("View"));
+			view.textContent = "View";
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
 			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
