@@ -19,7 +19,6 @@ getId();
 function submitComment() {
 	// Get Elements
 	const newComment = document.querySelector("#new-comment").value;
-	console.log(newComment);
 	// Check character length
 	if (newComment > 220)
 		return window.alert(
@@ -71,8 +70,11 @@ async function getAndSetSpecificJournal(id) {
 	content.textContent = data.content;
 	icon.src = data.icon;
 	date.textContent = data.time + " " + data.date;
-	idElm.textContent = `ID: ${data.id}`;
+	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
+
+	const emojiCounters = document.querySelector(".dopeCounter");
+	emojiCounters.textContent = `Comments: ${data.comments.length} - 😀 ${data.emojiOne} 🔥 ${data.emojiTwo} ❤ ${data.emojiThree}`;
 	// Get all comments
 	document
 		.getElementById("button-addon2")
@@ -146,6 +148,7 @@ async function appendComment(postId) {
 				r2c1.classList.add("col-2", "d-flex", "justify-content-center");
 				dope.classList.add("btn", "btn-sm", "btn-outline-danger");
 				dope.textContent = "DOPE";
+				// dope.textContent = "😀";
 				r2c2.classList.add(
 					"col",
 					"ms-2",
@@ -154,11 +157,15 @@ async function appendComment(postId) {
 					"justify-content-start"
 				);
 				//!comment count and dope count//
-				r2c2.appendChild(document.createTextNode("Comments: 0, DOPE: 0"));
+				r2c2.appendChild(
+					document.createTextNode("Comments: 0 - 😀 0 🔥 0 ❤ 0")
+				);
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `ID: ${comment.commentId}`;
+				id.textContent = `${comment.commentId}`;
+				id.classList.add("dopeId");
+				console.log(comment);
 
 				// Append elements
 				dir.after(dirRow);
@@ -187,6 +194,32 @@ async function appendComment(postId) {
 		console.log(error);
 	}
 }
+
+// Emoji One
+setTimeout(() => {
+	const btn = document.querySelector(".dope-btn");
+	btn.addEventListener("click", (e) => {
+		emoJiOneIncrementor(postId);
+	});
+}, 200);
+
+async function emoJiOneIncrementor(postId) {
+	try {
+		const res = await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${postId}/emojiOne`
+		);
+		const data = await res.text();
+		console.log(data);
+
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+// Emoji Two
+
+// Emoji Three
 
 //todo Example Comment Entry
 // <div class="row mb-2 px-4">  //?dirRow//

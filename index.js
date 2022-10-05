@@ -53,7 +53,6 @@ async function appendPost() {
 		);
 		const data = await res.json();
 		data.map((post) => {
-			console.log(post);
 			// Grab hold directory
 			const dir = document.getElementById("examplePost");
 			// Create elements
@@ -102,7 +101,9 @@ async function appendPost() {
 			view.appendChild(document.createTextNode("View"));
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
+			dope.classList.add("btn", "btn-sm", "btn-outline-danger", "dope-btn");
+			dope.setAttribute("data-id", post.id);
+
 			dope.textContent = "DOPE";
 			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
@@ -115,9 +116,7 @@ async function appendPost() {
 			//!comment count and dope count//
 			r2c2.appendChild(
 				document.createTextNode(
-					`${post.comments.length > 1 ? "Comments: " : "Comment:"} ${
-						post.comments.length
-					}, DOPE: 0`
+					`Comments: ${post.comments.length} - 😀 ${post.emojiOne} 🔥 ${post.emojiTwo} ❤ ${post.emojiThree}`
 				)
 			);
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
@@ -163,6 +162,32 @@ async function appendPost() {
 }
 
 appendPost();
+
+// Emoji One
+setTimeout(() => {
+	const btn = document.querySelectorAll(".dope-btn");
+	btn.forEach((ele) => {
+		ele.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiOneIncrementor(id);
+		});
+	});
+}, 500);
+
+async function emojiOneIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiOne`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+// Emoji Two
+
+// Emoji Three
 
 // todo Example appending post
 /* <div class="row mb-2 px-4">
