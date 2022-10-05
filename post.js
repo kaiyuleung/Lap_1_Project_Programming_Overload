@@ -72,7 +72,6 @@ async function getAndSetSpecificJournal(id) {
 	date.textContent = data.time + " " + data.date;
 	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
-
 	const emojiCounters = document.querySelector(".dopeCounter");
 	emojiCounters.textContent = `Comments: ${data.comments.length} - 😀 ${data.emojiOne} 🔥 ${data.emojiTwo} ❤ ${data.emojiThree}`;
 	// Get all comments
@@ -197,7 +196,7 @@ async function appendComment(postId) {
 
 // Emoji One
 setTimeout(() => {
-	const btn = document.querySelector(".dope-btn");
+	const btn = document.querySelector(".emojiOne-btn");
 	btn.addEventListener("click", (e) => {
 		emoJiOneIncrementor(postId);
 	});
@@ -218,8 +217,48 @@ async function emoJiOneIncrementor(postId) {
 }
 
 // Emoji Two
+setTimeout(() => {
+	const btn = document.querySelector(".emojiTwo-btn");
+	btn.addEventListener("click", (e) => {
+		emoJiTwoIncrementor(postId);
+	});
+}, 200);
+
+async function emoJiTwoIncrementor(postId) {
+	try {
+		const res = await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${postId}/emojiTwo`
+		);
+		const data = await res.text();
+		console.log(data);
+
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
 
 // Emoji Three
+setTimeout(() => {
+	const btn = document.querySelector(".emojiThree-btn");
+	btn.addEventListener("click", (e) => {
+		emoJiThreeIncrementor(postId);
+	});
+}, 200);
+
+async function emoJiThreeIncrementor(postId) {
+	try {
+		const res = await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${postId}/emojiThree`
+		);
+		const data = await res.text();
+		console.log(data);
+
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
 
 //todo Example Comment Entry
 // <div class="row mb-2 px-4">  //?dirRow//

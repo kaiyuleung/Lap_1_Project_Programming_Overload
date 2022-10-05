@@ -71,7 +71,9 @@ async function appendPost() {
 			const view = document.createElement("a");
 			const r2 = document.createElement("div");
 			const r2c1 = document.createElement("div");
-			const dope = document.createElement("div");
+			const emojiOne = document.createElement("div");
+			const emojiTwo = document.createElement("div");
+			const emojiThree = document.createElement("div");
 			const r2c2 = document.createElement("div");
 			const r2c3 = document.createElement("div");
 			const timeDate = document.createElement("span");
@@ -101,10 +103,39 @@ async function appendPost() {
 			view.appendChild(document.createTextNode("View"));
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-			dope.classList.add("btn", "btn-sm", "btn-outline-danger", "dope-btn");
-			dope.setAttribute("data-id", post.id);
+			emojiOne.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-primary",
+				"emojiOne-btn"
+			);
+			emojiOne.setAttribute("data-id", post.id);
 
-			dope.textContent = "DOPE";
+			emojiOne.textContent = "😀";
+			// dope.appendChild(document.createTextNode("DOPE"));
+			r2c2.classList.add(
+				"col",
+				"ms-2",
+				"reactionCount",
+				"d-flex",
+				"justify-content-start"
+			);
+			emojiTwo.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-success",
+				"emojiTwo-btn"
+			);
+			emojiTwo.setAttribute("data-id", post.id);
+			emojiTwo.textContent = "🔥";
+			emojiThree.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-danger",
+				"emojiThree-btn"
+			);
+			emojiThree.setAttribute("data-id", post.id);
+			emojiThree.textContent = "❤";
 			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
 				"col",
@@ -140,7 +171,9 @@ async function appendPost() {
 			r1c3.appendChild(view);
 			container.appendChild(r2);
 			r2.appendChild(r2c1);
-			r2c1.appendChild(dope);
+			r2c1.appendChild(emojiOne);
+			r2c1.appendChild(emojiTwo);
+			r2c1.appendChild(emojiThree);
 			r2.appendChild(r2c2);
 			r2.appendChild(r2c3);
 			r2c3.appendChild(timeDate);
@@ -165,9 +198,9 @@ appendPost();
 
 // Emoji One
 setTimeout(() => {
-	const btn = document.querySelectorAll(".dope-btn");
-	btn.forEach((ele) => {
-		ele.addEventListener("click", (e) => {
+	const emojiOneBtn = document.querySelectorAll(".emojiOne-btn");
+	emojiOneBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
 			const id = e.target.getAttribute("data-id");
 			emojiOneIncrementor(id);
 		});
@@ -186,9 +219,48 @@ async function emojiOneIncrementor(id) {
 }
 
 // Emoji Two
+setTimeout(() => {
+	const emojiTwoBtn = document.querySelectorAll(".emojiTwo-btn");
+	emojiTwoBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiTwoIncrementor(id);
+		});
+	});
+}, 500);
+
+async function emojiTwoIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiTwo`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
 
 // Emoji Three
+setTimeout(() => {
+	const emojiThreeBtn = document.querySelectorAll(".emojiThree-btn");
+	emojiThreeBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiThreeIncrementor(id);
+		});
+	});
+}, 500);
 
+async function emojiThreeIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiThree`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
 // todo Example appending post
 /* <div class="row mb-2 px-4">
     <div class="container-fluid postPreview">
