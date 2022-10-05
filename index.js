@@ -8,7 +8,6 @@ async function submitPost(e) {
 		"https://futureproof-journal.herokuapp.com/journal"
 	);
 	const dataOne = await resOne.json();
-	// console.log(dataOne.length);
 	// Date & Time
 	const date = Date.now();
 	const today = new Date(date);
@@ -43,9 +42,9 @@ async function submitPost(e) {
 	sendToBackend(postData);
 	appendPost();
 	// Reload
-	// setTimeout(() => {
-	// 	location.reload();
-	// }, 200);
+	setTimeout(() => {
+		location.reload();
+	}, 200);
 }
 
 async function sendToBackend(newEntry) {
@@ -70,6 +69,7 @@ async function appendPost() {
 		);
 		const data = await res.json();
 		data.map((post) => {
+			console.log(post);
 			// Grab hold directory
 			const dir = document.getElementById("examplePost");
 			// Create elements
@@ -95,7 +95,7 @@ async function appendPost() {
 			const r2c4 = document.createElement("div");
 			const id = document.createElement("span");
 			// Set elements
-			// console.log(post);
+			dirRow.id = `${post.id}`;
 			dirRow.classList.add("row", "mb-2", "px-4");
 			container.classList.add("container-fluid", "postPreview");
 			r1.classList.add("row");

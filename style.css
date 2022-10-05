@@ -15,7 +15,7 @@ body{
 }
 
 .card{
-    width: 120px;
+    width: 60px;
     text-align: center;
 }
 
@@ -96,19 +96,19 @@ body{
 }
 
 /* Post.html */
-#post{
+#postPage #post{
     background-color: var(--bg-major);
     height: 30%;
 }
 
-#commentSection{
+#postPage #commentSection{
     background-color: var(--bg-minor);
-    height: 55%;
+    height: 60%;
 }
 
-#postComment{
-    background-color: var(--bg-minor);
-    height: 15%;
+#postPage #postComment{
+    background-color: black;
+    height: 10%;
 }
 
 #postCol1{
