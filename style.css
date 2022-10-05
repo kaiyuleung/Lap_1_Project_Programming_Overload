@@ -1,57 +1,44 @@
-/* Root */
-:root{
-    --bg-major: lightpink;
-    --bg-minor: rgb(255, 216, 144);
+/* !Root */
+:root {
+	--bg-major: pink;
+	--bg-minor: rgb(255, 216, 144);
+	--height-sectionTitle: 42px;
 }
 
-html, body{height: 100%;}
+html,body {height: 100%;}
 
-body{
-    min-width: 550px;
-    min-height: 450px;
-    max-height: 2048px;
-    max-width: 3090px;
+body {
+	min-width: 550px;
+	min-height: 450px;
+	max-height: 2048px;
+	max-width: 3090px;
+	background-color: rgba(0, 0, 0, 0.435);
 }
 
-.card{
-    width: 120px;
-    text-align: center;
-}
-
-.reactionCount{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
+.card {
+	width: 6rem;
+	text-align: center;
 }
 
 #login {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'Nanum Gothic', sans-serif;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Marck Script', cursive;
-    font-weight: 500;
-    font-size: 500%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Marck Script", cursive;
+	font-weight: 500;
+	font-size: 500%;
 }
 
-/* Front page */ 
-#frontPage {
-    background-image: url('./img/download\ \(1\).png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: gray;
-}
-
-/* emoji selector*/
+/* radio buttons*/
 [type=radio] { 
     position: absolute;
     opacity: 0;
@@ -67,77 +54,90 @@ body{
     background-color: rgba(37, 42, 180, 0.274);
 }
 
-/* Giphy selector*/
+/* scrollspy */
+#scrollSpy, #scrollSpyNav{
+	overflow-y: scroll;
+	height: 720px;	/*!work this out*/
+}
+
+/* !Front page */ 
+#frontPage {
+    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 
-/* Main.html */
+/* !Main.html */
+#mainPage #toPost {
+	background-color: var(--bg-major);
+	height: 30%;
+}
 
-#mainPage #toPost{
+#mainPage #allPosts {
+	background-color: tan;
+	height: 70%;
+}
+
+#toPost #toPostTitle{
+	/* height: var(--height-sectionTitle); */
+}
+
+#toPost #toPostContent{
+	height: 80%;
+}
+
+
+.postPreview {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: wheat;
+}
+
+/* !Post.html */
+#postPage #post{
     background-color: var(--bg-major);
     height: 30%;
 }
 
-#toPost #userDetail, #postFilling, #reaction{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
-}
-
-#mainPage #allPosts{
-    /* background-color: green */
-    height: 70%;
-}
-
-.postPreview{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: FFFFF0;
-}
-
-/* Post.html */
-#post{
-    background-color: var(--bg-major);
-    height: 30%;
-}
-
-#commentSection{
+#postPage #commentSection{
     background-color: var(--bg-minor);
-    height: 55%;
+    height: 60%;
 }
 
-#postComment{
-    background-color: var(--bg-minor);
-    height: 15%;
+#postPage #postComment{
+    background-color: black;
+    height: 10%;
 }
 
-#postCol1{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
+#postCol1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
-#postContent{
-    border: 1px solid black;
-    border-radius: 5px;
+#postContent {
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
-.comment{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: wheat;
+.comment {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: wheat;
 }
 
-.commentContent{
-    border: 1px solid black;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
+.commentContent {
+	border: 1px solid black;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
 }
 
 
-
+/* !Responsive for mobile */
 @media only screen and (max-width:650px){
     .card-body p{
         font-size: 15px;

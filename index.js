@@ -8,7 +8,6 @@ async function submitPost(e) {
 		"https://futureproof-journal.herokuapp.com/journal"
 	);
 	const dataOne = await resOne.json();
-	// console.log(dataOne.length);
 	// Date & Time
 	const date = Date.now();
 	const today = new Date(date);
@@ -43,9 +42,9 @@ async function submitPost(e) {
 	sendToBackend(postData);
 	appendPost();
 	// Reload
-	// setTimeout(() => {
-	// 	location.reload();
-	// }, 200);
+	setTimeout(() => {
+		location.reload();
+	}, 200);
 }
 
 async function sendToBackend(newEntry) {
@@ -70,9 +69,12 @@ async function appendPost() {
 		);
 		const data = await res.json();
 		data.map((post) => {
+			console.log(post);
 			// Grab hold directory
-			const dir = document.getElementById("examplePost");
+			const nav = document.getElementById("scrollSpyNavDir");
+			const dir = document.getElementById("scrollSpyDir");
 			// Create elements
+			const navA = document.createElement("a");
 			const dirRow = document.createElement("div");
 			const container = document.createElement("div");
 			const r1 = document.createElement("div");
@@ -95,7 +97,10 @@ async function appendPost() {
 			const r2c4 = document.createElement("div");
 			const id = document.createElement("span");
 			// Set elements
-			// console.log(post);
+			navA.classList.add('p-1', 'rounded');
+			navA.href = `#post${post.id}`;
+			navA.textContent = `${post.id}`;
+			dirRow.id = `post${post.id}`;
 			dirRow.classList.add("row", "mb-2", "px-4");
 			container.classList.add("container-fluid", "postPreview");
 			r1.classList.add("row");
@@ -120,7 +125,6 @@ async function appendPost() {
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
 			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
 			dope.textContent = "DOPE";
-			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
 				"col",
 				"ms-2",
@@ -129,13 +133,20 @@ async function appendPost() {
 				"justify-content-start"
 			);
 			//!comment count and dope count//
-			r2c2.appendChild(document.createTextNode("comment x DOPE y"));
+			r2c2.appendChild(
+				document.createTextNode(
+					`${post.comments.length > 1 ? "Comments: " : "Comment:"} ${
+						post.comments.length
+					}, DOPE: 0`
+				)
+			);
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-			id.textContent = post.id;
+			id.textContent = `${post.id}`;
 
 			// Append elements
+			nav.after(navA);
 			dir.after(dirRow);
 			dirRow.appendChild(container);
 			container.appendChild(r1);
@@ -202,7 +213,6 @@ async function appendPost() {
         </div>
     </div>
 </div> */
-
 	} catch (error) {
 		console.log(error);
 	}
