@@ -243,6 +243,8 @@ async function dopeIncrementer(postId) {
 
 		const data = await res.text();
 
+		
+
 		setTimeout(() => {
 			location.reload();
 		}, 200);

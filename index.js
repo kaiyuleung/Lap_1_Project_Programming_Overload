@@ -34,6 +34,7 @@ async function submitPost(e) {
 				emojiThree: 0,
 			},
 		],
+		dope: 0,
 		gif: e.target.gif.value, //!This is the selected gif's URL
 		date: todaysDate,
 		time: time,
@@ -68,7 +69,7 @@ async function appendPost() {
 			"https://futureproof-journal.herokuapp.com/journal"
 		);
 		const data = await res.json();
-		data.map((post) => {
+		data.map((post, i) => {
 			console.log(post);
 			// Grab hold directory
 			const dir = document.getElementById("examplePost");
@@ -118,7 +119,9 @@ async function appendPost() {
 			view.appendChild(document.createTextNode("View"));
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
+			dope.classList.add("btn", "btn-sm", "btn-outline-danger","dope-btn");
+			dope.setAttribute('data-id', post.id);
+
 			dope.textContent = "DOPE";
 			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
@@ -136,6 +139,7 @@ async function appendPost() {
 					}, DOPE: 0`
 				)
 			);
+			console.log(r2c2.children,"I am here")
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
@@ -214,3 +218,38 @@ async function appendPost() {
 }
 
 appendPost();
+
+
+setTimeout(()=> {
+	const btn = document.querySelectorAll('.dope-btn');
+	console.log(btn);
+	btn.forEach((ele) => {
+		console.log(ele)
+		ele.addEventListener('click', (e) => {
+			// console.log(e)
+			const id = e.target.getAttribute("data-id")
+			dopeIncrementer(id)
+		})
+	})
+		
+},500)
+
+
+async function dopeIncrementer(id) {
+	// console.log(id)
+	try {
+		const res = await fetch(`https://futureproof-journal.herokuapp.com/journal/${id}/dope`);
+
+		const data = await res.text();
+
+		console.log(data)
+
+		// setTimeout(() => {
+		// 	location.reload();
+		// }, 200);
+		
+	} catch (error) {
+		
+	}
+}
+
