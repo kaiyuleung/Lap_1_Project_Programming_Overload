@@ -15,7 +15,7 @@ body{
 }
 
 .card{
-    width: 60px;
+    width: 120px;
     text-align: center;
 }
 
@@ -24,20 +24,6 @@ body{
     border-radius: 5px;
     background-color: white;
 }
-
-
-
-
-/* Front page */ 
-#frontPage {
-    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-
-
 
 #login {
     display: flex;
@@ -56,6 +42,33 @@ body{
     font-weight: 500;
     font-size: 500%;
 }
+
+/* Front page */ 
+#frontPage {
+    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* emoji selector*/
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio] + label {
+    cursor: pointer;
+}
+
+[type=radio]:checked + label {
+    background-color: rgba(37, 42, 180, 0.274);
+}
+
+/* Giphy selector*/
+
 
 
 /* Main.html */
@@ -123,4 +136,11 @@ body{
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+
+@media only screen and (max-width:650px){
+    .card-body p{
+        font-size: 15px;
+    }
 }

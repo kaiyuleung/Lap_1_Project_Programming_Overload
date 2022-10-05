@@ -1,54 +1,39 @@
-"use strict";
+const GiphyAPI = 'https://api.giphy.com/v1/gifs/search?api_key=XEAkZeR976diLYKcNhMlxn8S9Uvbbfza&rating=pg&q=';
+const GifLimit = 3;
+const gifSearchResults = document.getElementById('gifSearchResult');
+const GiphySearchKeywords = document.getElementById('GiphySearchKeywords');
 
-const apiUrl = 'https://api.giphy.com/v1/gifs/search?api_key=XEAkZeR976diLYKcNhMlxn8S9Uvbbfza&rating=pg&q=';
-const limitVal = 4;
-const main = document.getElementById("results");
-const form = document.getElementById("gifForm");
-const searchInput = document.getElementById("search");
+document.getElementById('GiphySearch').addEventListener('click',getGifs);
 
-function clearPreviousResults() {
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
+function getGifs(e){
+    e.preventDefault();
+    gifSearchResults.innerHTML = "";
+
+    const url = `${GiphyAPI}${GiphySearchKeywords.value}&limit=${GifLimit}`;
+    fetch(url, { mode: "cors" })
+        .then(r => r.json())
+        .then(x => appendGifs(x.data))
+        .catch(console.warn)
+};
+
+function appendGifs(gifs){
+    for (let [index, gif] of gifs.entries()){
+        let selectedGif = document.createElement('input');
+        selectedGif.type = "image";
+        selectedGif.name = "gif";
+        selectedGif.src = gif.images.fixed_height.url;
+        selectedGif.alt = `gif${index}`;
+        // selectedGif.classList.add()
+
+        //return false;" would disable image input as a submitter
+        selectedGif.setAttribute('onClick', "return false;");
+
+        gifSearchResults.appendChild(selectedGif)
     }
 }
 
-function createImages(gifs) {
-    let i = 0;
-    for (const gif of gifs) {
 
-        const gifSrc = gif.images.fixed_height.url;
-        const input = document.createElement("input");
+// gifSearchResults.addEventListener('click', x = console.log(x.target.src))
 
-        input.type = "image"
-        input.name = "gif"
-        input.src = gifSrc
-        input.alt = "gif"
-        input.id = `gif${i}`
-        input.classList.add("results-gif")
-
-
-        main.append(input)
-        i++;
-    }
-}
-
-async function getGifs(event) {
-    event.preventDefault();
-    clearPreviousResults();
-
-    const searchInputValue = searchInput.value;
-    const gifyUrl = `${apiUrl}${searchInputValue}&limit=${limitVal}`;
-    const response = await fetch(gifyUrl, { mode: "cors" });
-    const data = await response.json();
-    const gifData = await data.data;
-
-    createImages(gifData);
-    searchInput.value = "";
-    // refresh the index.js
-    
-}
-
-
-
-document.getElementById('findGif').addEventListener('click',getGifs);
+//
 

@@ -12,7 +12,7 @@
 
     <!-- CSS & JS -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./giphy.css">
+    <!-- <link rel="stylesheet" href="./giphy.css"> -->
     <script defer src="./index.js"></script>
     <script defer src="./giphy.js"></script>
 
@@ -60,49 +60,57 @@
                             Emoji
                         </button>
                         <ul class="dropdown-menu">
-                            <li><input type="radio" id="like" name="emoji" value="like">
-                            <label for="like">Like</label></li>
-                            <li><input type="radio" id="happy" name="emoji" value="happy">
-                            <label for="happy">Happy</label></li>
-                            <li><input type="radio" id="sad" name="emoji" value="sad">
-                            <label for="sad">Sad</label></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><input type="radio" id="none" name="emoji" value="none" checked>
-                            <label for="none">None</label></li>
+                            <li class="d-flex justify-content-center">
+                                <input type="radio" id="like" name="emoji" value="like">
+                                <label class="px-5" for="like">Like</label>
+                            </li>
+                            <li class="d-flex justify-content-center">
+                                <input type="radio" id="happy" name="emoji" value="happy">
+                            <label class="px-5" for="happy">Happy</label>
+                        </li>
+                            <li class="d-flex justify-content-center">
+                                <input type="radio" id="sad" name="emoji" value="sad">
+                            <label class="px-5" for="sad">Sad</label>
+                        </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="d-flex justify-content-center">
+                                <input type="radio" id="none" name="emoji" value="none" checked>
+                            <label class="px-5" for="none">None</label>
+                        </li>
                         </ul>
                     </div>
 
+                    <!-- GIF section starts -->
                     <!-- GIF Button -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Gif
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#giphy">
+                        Giphy
                     </button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- GIF Modal -->
+                    <div class="modal fade" id="giphy" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="input-group">
+                                        <input id="GiphySearchKeywords" type="text" class="form-control" placeholder="Search Gif by keywords" aria-label="Search Gif by keywords" aria-describedby="GiphySearch">
+                                        <button id="GiphySearch" class="btn btn-outline-secondary" type="button">Search</button>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="giphContainer">
-                                        <form id="gifForm" class="form">
-                                            <div class="form-field">
-                                                <input type="text" class="form-field-input" id="search" placeholder="Search for gifs">
-                                                <input id="findGif" type="submit" value="Get Gifs" class="form-field-submit">
-                                            </div>
-                                        </form>
-                                        <main id="results" class="results">
-                                            
-                                        </main>
-                                        </div>
+                                <div id="gifSearchResult" class="modal-body">
+                                    <!-- todo Gifs append here -->
                                 </div>
                                 <div class="modal-footer">
+                                    <div>
+                                        <input type="radio" checked>
+                                        <label type="button" class="btn btn-outline-secondary" for="">None</label>
+                                    </div>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-secondary">Add gif</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Button section ends -->
+                    <!-- GIF section ends -->
 
 
                 </div>
@@ -136,7 +144,7 @@
                             <p>Today, I ...<br>...</p>
                         </div>
                         <div class="col-2 mt-2 d-flex justify-content-end">
-                            <a role="button" class="btn btn-secondary" href="./post.html" style="height:40%;">View</a>
+                            <a role="button" class="btn btn-secondary" href="./post.html" style="height:40px;">View</a>
                         </div>
                     </div>
                     <div class="row pb-2">
