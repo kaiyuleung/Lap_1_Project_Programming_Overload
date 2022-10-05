@@ -8,7 +8,6 @@ async function submitPost(e) {
 		"https://futureproof-journal.herokuapp.com/journal"
 	);
 	const dataOne = await resOne.json();
-	console.log(dataOne.length);
 	// Date & Time
 	const date = Date.now();
 	const today = new Date(date);
@@ -35,7 +34,7 @@ async function submitPost(e) {
 				emojiThree: 0,
 			},
 		],
-		gif: [],
+		gif: e.target.gif.value, //!This is the selected gif's URL
 		date: todaysDate,
 		time: time,
 		comments: [{}],
@@ -70,6 +69,7 @@ async function appendPost() {
 		);
 		const data = await res.json();
 		data.map((post) => {
+			console.log(post);
 			// Grab hold directory
 			const dir = document.getElementById("examplePost");
 			// Create elements
@@ -95,7 +95,7 @@ async function appendPost() {
 			const r2c4 = document.createElement("div");
 			const id = document.createElement("span");
 			// Set elements
-			console.log(post);
+			dirRow.id = `${post.id}`;
 			dirRow.classList.add("row", "mb-2", "px-4");
 			container.classList.add("container-fluid", "postPreview");
 			r1.classList.add("row");
@@ -114,7 +114,7 @@ async function appendPost() {
 			view.setAttribute("role", "button");
 			view.classList.add("btn", "btn-secondary");
 			// view.href = "./post.html";
-			view.style.height = "40%";
+			view.style.height = "40px";
 			view.appendChild(document.createTextNode("View"));
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
@@ -168,15 +168,15 @@ async function appendPost() {
 			});
 		});
 
-		// todo Example appending post
-		/* <div class="row mb-2 px-4">  //?dirRow//
-    <div class="container-fluid postPreview">   //?container//
-        <div class="row">   //?r1//
-            <div class="col-2 py-2 d-flex justify-content-center">  //?r1c1//
-                <div class="card">  //?userCard//
-                    <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon"> //?userIcon//
-                    <div class="card-body p-1 border-top">  //?userCardBody//
-                        <p class="card-title m-0">User1</p> //?username//
+// todo Example appending post
+/* <div class="row mb-2 px-4">
+    <div class="container-fluid postPreview">
+        <div class="row">
+            <div class="col-2 py-2 d-flex justify-content-center">
+                <div class="card">
+                    <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
+                    <div class="card-body p-1 border-top">
+                        <p class="card-title m-0">User1</p>
                     </div>
                 </div>
             </div>
