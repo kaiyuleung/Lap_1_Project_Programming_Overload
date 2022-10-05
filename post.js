@@ -162,7 +162,7 @@ async function appendComment(postId) {
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `ID: ${comment.commentId.substring(0, 4)}`;
+				id.textContent = `${comment.commentId.substring(0, 4)}`;
 
 				// Append elements
 				nav.after(navA);

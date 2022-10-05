@@ -26,66 +26,27 @@
     <div id="mainPage" class="container-fluid p-0" style="height: 100%;">
 
         <div id="toPost" class="row m-0">
-            <div class="container-fluid" >
+            <div class="container-fluid p-0" style="height: 100%;">
 
-                <div id="toPostTitle" class="row p-2" style="height: 15%;">
+                <div id="toPostTitle" class="row p-2" >
                     <div class="col">
                         <h1>Make a post</h1>
                     </div>
                 </div>
 
-                <form id="toPostContent" class="row" style="height: 85%;">
-                    <div id="userDetail" class="col-2 pt-2 pb-4">
+                <form id="toPostContent" class="row m-0" >
+
+                    <div class="col-2 d-flex flex-column align-items-center justify-content-between">
+                        <!-- User Card -->
                         <div id="userInfoCard"  class="card">
                             <img id="userIcon" src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
                             <div class="card-body p-1 border-top">
                                 <p id="username" class="card-title m-0">You</p>
                             </div>
                         </div>
-                    </div>
-                    <div id="postFilling" class="col pt-2 pb-4">
-                        <div class="input-group mb-3" style="width: 90%;">
-                            <input id="postTitle" type="text" class="form-control" placeholder="Title" maxlength="50">
-                        </div>
-                        <div class="input-group mb-3" style="width: 90%; height:80%;">
-                            <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." maxlength="280">
-                            
-                            <input id="toPostSubmit" class="btn btn-outline-secondary" type="Submit"  value="Submit"></input>
-                        </div>
-                    </div>
-                    <div id="reaction" class="col-2 pt-2 pb-4 mb-3">
-
-                        <div id="emoji" class="btn-group dropstart">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 93px; width: 80px;">
-                                Emoji
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="d-flex justify-content-center">
-                                    <input type="radio" id="like" name="emoji" value="like">
-                                    <label class="px-5" for="like">Like</label>
-                                </li>
-                                <li class="d-flex justify-content-center">
-                                    <input type="radio" id="happy" name="emoji" value="happy">
-                                <label class="px-5" for="happy">Happy</label>
-                            </li>
-                                <li class="d-flex justify-content-center">
-                                    <input type="radio" id="sad" name="emoji" value="sad">
-                                <label class="px-5" for="sad">Sad</label>
-                            </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li class="d-flex justify-content-center">
-                                    <input type="radio" id="none" name="emoji" value="none" checked>
-                                <label class="px-5" for="none">None</label>
-                            </li>
-                            </ul>
-                        </div>
-
-                        <!-- GIF section starts -->
                         <!-- GIF Button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#giphy">
-                            Giphy
+                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#giphy">
+                            GIF
                         </button>
                         <!-- GIF Modal -->
                         <div class="modal fade" id="giphy" tabindex="-1" aria-hidden="true">
@@ -123,10 +84,50 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- GIF section ends -->
-
-
                     </div>
+                    <div class="col p-0 m-3 d-flex flex-column align-items-center justify-content-between">
+                        <div class="input-group mb-3" style="width: 100%; height:10%;">
+
+                            <div id="emoji" class="btn-group dropend">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Emoji
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="like" name="emoji" value="like">
+                                        <label class="px-5" for="like">Like</label>
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="happy" name="emoji" value="happy">
+                                    <label class="px-5" for="happy">Happy</label>
+                                </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="sad" name="emoji" value="sad">
+                                    <label class="px-5" for="sad">Sad</label>
+                                </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="none" name="emoji" value="none" checked>
+                                    <label class="px-5" for="none">None</label>
+                                </li>
+                                </ul>
+                            </div>                    
+                            <input id="postTitle" type="text" class="form-control" placeholder="Title" maxlength="50">
+                            
+                        </div>
+
+                        <div class="input-group" style="width: 100%; height:80%;">
+                            <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." maxlength="280">
+                            
+                            <input id="toPostSubmit" class="btn btn-outline-secondary" type="Submit"  value="Submit"></input>
+                        </div>
+                    </div>
+
+                    <!-- <div id="userDetail" class="col-2 pt-2 pb-4"></div>
+                    <div id="postFilling" class="col pt-2 pb-4"></div>
+                    <div id="reaction" class="col-2 pt-2 pb-4 mb-3"></div> -->
 
                 </form>
 
@@ -146,14 +147,14 @@
                     <div class="col-1">
                         <div id="scrollSpyNav" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
 
-                            <a class="p-1 rounded" href="#examplePost">1</a>
+                            <a class="p-1 rounded" href="#examplePost">id</a>
 
                             <span id="scrollSpyNavDir"></span>
                             <!-- todo New Comment id links here -->
 
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col p-0">
                         <div id="scrollSpy" data-bs-spy="scroll" data-bs-target="#scrollSpyNav" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                             <!-- !Example post entry -->
                             <div id="examplePost" class="row mb-2 px-4">

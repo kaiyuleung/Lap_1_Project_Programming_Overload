@@ -143,7 +143,7 @@ async function appendPost() {
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-			id.textContent = `ID: ${post.id}`;
+			id.textContent = `${post.id}`;
 
 			// Append elements
 			nav.after(navA);

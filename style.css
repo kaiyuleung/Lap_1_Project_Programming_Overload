@@ -1,13 +1,11 @@
-/* Root */
+/* !Root */
 :root {
 	--bg-major: pink;
 	--bg-minor: rgb(255, 216, 144);
+	--height-sectionTitle: 42px;
 }
 
-html,
-body {
-	height: 100%;
-}
+html,body {height: 100%;}
 
 body {
 	min-width: 550px;
@@ -18,7 +16,7 @@ body {
 }
 
 .card {
-	width: 60px;
+	width: 6rem;
 	text-align: center;
 }
 
@@ -40,20 +38,7 @@ body {
 	font-size: 500%;
 }
 
-#scrollSpy, #scrollSpyNav{
-	overflow-y: scroll;
-	height: 500px;	/*!work this out*/
-}
-
-/* Front page */ 
-#frontPage {
-    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-/* emoji selector*/
+/* radio buttons*/
 [type=radio] { 
     position: absolute;
     opacity: 0;
@@ -69,23 +54,25 @@ body {
     background-color: rgba(37, 42, 180, 0.274);
 }
 
-/* Giphy selector*/
+/* scrollspy */
+#scrollSpy, #scrollSpyNav{
+	overflow-y: scroll;
+	height: 720px;	/*!work this out*/
+}
+
+/* !Front page */ 
+#frontPage {
+    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 
-/* Main.html */
-
+/* !Main.html */
 #mainPage #toPost {
 	background-color: var(--bg-major);
 	height: 30%;
-}
-
-#toPost #userDetail,
-#postFilling,
-#reaction {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
 }
 
 #mainPage #allPosts {
@@ -93,13 +80,22 @@ body {
 	height: 70%;
 }
 
+#toPost #toPostTitle{
+	/* height: var(--height-sectionTitle); */
+}
+
+#toPost #toPostContent{
+	height: 80%;
+}
+
+
 .postPreview {
 	border: 1px solid black;
 	border-radius: 5px;
 	background-color: wheat;
 }
 
-/* Post.html */
+/* !Post.html */
 #postPage #post{
     background-color: var(--bg-major);
     height: 30%;
@@ -141,7 +137,7 @@ body {
 }
 
 
-
+/* !Responsive for mobile */
 @media only screen and (max-width:650px){
     .card-body p{
         font-size: 15px;
