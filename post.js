@@ -88,9 +88,11 @@ async function appendComment(postId) {
 		const data = await res.json();
 		data.comments.length > 0 &&
 			data.comments.map((comment) => {
-				// idk
-				const dir = document.getElementById("exampleComment");
+				// Grab hold directory
+				const nav = document.getElementById("scrollSpyNavDir");
+				const dir = document.getElementById("scrollSpyDir");
 				// Create elements
+				const navA = document.createElement("a");
 				const dirRow = document.createElement("div");
 				const container = document.createElement("div");
 				const r1 = document.createElement("div");
@@ -113,6 +115,10 @@ async function appendComment(postId) {
 				const r2c4 = document.createElement("div");
 				const id = document.createElement("span");
 				// Set elements
+				navA.classList.add('p-1', 'rounded');
+				navA.href = `#comment${comment.commentId.substring(0, 4)}`;
+				navA.textContent = `${comment.commentId.substring(0, 4)}`;
+				dirRow.id = `comment${comment.commentId.substring(0, 4)}`;
 				dirRow.classList.add("row", "mb-2", "px-4");
 				container.classList.add("container-fluid", "comment");
 				r1.classList.add("row");
@@ -159,6 +165,7 @@ async function appendComment(postId) {
 				id.textContent = `ID: ${comment.commentId.substring(0, 4)}`;
 
 				// Append elements
+				nav.after(navA);
 				dir.after(dirRow);
 				dirRow.appendChild(container);
 				container.appendChild(r1);

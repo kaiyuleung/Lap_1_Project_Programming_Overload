@@ -71,8 +71,10 @@ async function appendPost() {
 		data.map((post) => {
 			console.log(post);
 			// Grab hold directory
-			const dir = document.getElementById("examplePost");
+			const nav = document.getElementById("scrollSpyNavDir");
+			const dir = document.getElementById("scrollSpyDir");
 			// Create elements
+			const navA = document.createElement("a");
 			const dirRow = document.createElement("div");
 			const container = document.createElement("div");
 			const r1 = document.createElement("div");
@@ -95,7 +97,10 @@ async function appendPost() {
 			const r2c4 = document.createElement("div");
 			const id = document.createElement("span");
 			// Set elements
-			dirRow.id = `${post.id}`;
+			navA.classList.add('p-1', 'rounded');
+			navA.href = `#post${post.id}`;
+			navA.textContent = `${post.id}`;
+			dirRow.id = `post${post.id}`;
 			dirRow.classList.add("row", "mb-2", "px-4");
 			container.classList.add("container-fluid", "postPreview");
 			r1.classList.add("row");
@@ -120,7 +125,6 @@ async function appendPost() {
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
 			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
 			dope.textContent = "DOPE";
-			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
 				"col",
 				"ms-2",
@@ -142,6 +146,7 @@ async function appendPost() {
 			id.textContent = `ID: ${post.id}`;
 
 			// Append elements
+			nav.after(navA);
 			dir.after(dirRow);
 			dirRow.appendChild(container);
 			container.appendChild(r1);
@@ -175,39 +180,44 @@ async function appendPost() {
 		});
 
 		// todo Example appending post
-		/* <div class="row mb-2 px-4">
-    <div class="container-fluid postPreview">
-        <div class="row">
-            <div class="col-2 py-2 d-flex justify-content-center">
-                <div class="card">
-                    <img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">
-                    <div class="card-body p-1 border-top">
-                        <p class="card-title m-0">User1</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col py-2">
-                <h5>Happy Day!</h5>
-                <p>Today, I ...<br>...</p>
-            </div>
-            <div class="col-2 mt-2 d-flex justify-content-end">
-                <a role="button" class="btn btn-secondary" href="./post.html" style="height:3em;">View</a>
-            </div>
-        </div>
-        <div class="row pb-2">
-            <div class="col-2 d-flex justify-content-center">
-                <button class="btn btn-sm btn-outline-danger">DOPE</button>
-            </div>
-            <div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>
-            <div class="col d-flex justify-content-end">
-                <span>14:21 03/Oct/2022</span>
-            </div>
-            <div class="col-1 d-flex justify-content-end">
-                <span>id</span>
-            </div>
-        </div>
-    </div>
-</div> */
+		
+		// <div id="scrollSpyNav" ...	//todo nav
+		// <a class="p-1 rounded" href="#post0">0</a> //?navA
+
+		// <div id="scrollSpy" ...		//todo dir
+		/*<div id="post0" class="row mb-2 px-4">	//?dirRow
+			<div class="container-fluid postPreview">	//?container
+				<div class="row">	//?r1
+					<div class="col-2 py-2 d-flex justify-content-center">	//?r1c1
+						<div class="card">		//?userCard
+							<img src="./img/userlcon/defaultUser.png" class="card-img-top" alt="Default User Icon">	//?userIcon
+							<div class="card-body p-1 border-top">	//?userCardBody
+								<p class="card-title m-0">User1</p>	//?username
+							</div>
+						</div>
+					</div>
+					<div class="col py-2">	//?r1c2
+						<h5>Happy Day!</h5>	//?title
+						<p>Today, I ...<br>...</p>	//?content
+					</div>
+					<div class="col-2 mt-2 d-flex justify-content-end">	//?r1c3
+						<a role="button" class="btn btn-secondary" href="./post.html" style="height:3em;">View</a>	//?view
+					</div>
+				</div>
+				<div class="row pb-2">	//?r2
+					<div class="col-2 d-flex justify-content-center">	//?r2c1
+						<button class="btn btn-sm btn-outline-danger">DOPE</button>	//?dope
+					</div>
+					<div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>	//?r2c2
+					<div class="col d-flex justify-content-end">	//?r2c3
+						<span>14:21 03/Oct/2022</span>	//?timeDate
+					</div>
+					<div class="col-1 d-flex justify-content-end">	//?r2c4
+						<span>id</span>	//?id
+					</div>
+				</div>
+			</div>
+		</div> */
 	} catch (error) {
 		console.log(error);
 	}
