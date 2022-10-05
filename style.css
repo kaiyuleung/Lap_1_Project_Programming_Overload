@@ -12,7 +12,7 @@ body {
 	min-height: 450px;
 	max-height: 2048px;
 	max-width: 3090px;
-	background-color: rgba(0, 0, 0, 0.435);
+	background-color: tan;
 }
 
 .card {
@@ -76,7 +76,7 @@ body {
 }
 
 #mainPage #allPosts {
-	background-color: tan;
+	/* background-color: tan; */
 	height: 70%;
 }
 
@@ -92,7 +92,7 @@ body {
 .postPreview {
 	border: 1px solid black;
 	border-radius: 5px;
-	background-color: wheat;
+	/* background-color: wheat; */
 }
 
 /* !Post.html */
