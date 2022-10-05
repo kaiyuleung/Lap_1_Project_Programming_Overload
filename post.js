@@ -69,7 +69,7 @@ async function getAndSetSpecificJournal(id) {
 	content.textContent = data.content;
 	icon.src = data.icon;
 	date.textContent = data.time + " " + data.date;
-	idElm.textContent = `ID: ${data.id}`;
+	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
 	// Get all comments
 	document
@@ -156,7 +156,8 @@ async function appendComment(postId) {
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `ID: ${comment.commentId.substring(0, 4)}`;
+				id.textContent = `${ comment.commentId }`;
+				id.classList.add("dopeId")
 
 				// Append elements
 				dir.after(dirRow);
@@ -180,6 +181,7 @@ async function appendComment(postId) {
 				r2c3.appendChild(timeDate);
 				r2.appendChild(r2c4);
 				r2c4.appendChild(id);
+				
 			});
 	} catch (error) {
 		console.log(error);
@@ -219,4 +221,25 @@ async function appendComment(postId) {
 	//         </div>
 	//     </div>
 	// </div>
+};
+
+setTimeout(()=> {
+	const btn = document.querySelector('.dope-btn');
+		btn.addEventListener('click', (e) => {
+			dopeIncrementer(postId)
+		})
+},200)
+
+
+async function dopeIncrementer(postId) {
+	try {
+		const res = await fetch(`https://futureproof-journal.herokuapp.com/journal/${postId}/dope`);
+
+		const data = await res.json();
+
+		console.log(data)
+		
+	} catch (error) {
+		
+	}
 }
