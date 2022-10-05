@@ -71,11 +71,16 @@ async function getAndSetSpecificJournal(id) {
 	date.textContent = data.time + " " + data.date;
 	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
+
+	const dopeCounter = document.querySelector('.dopeCounter');
+	console.log(dopeCounter)
+	dopeCounter.textContent = `Comment: ${data.comments.length}, Dope: ${data.dope}`;
 	// Get all comments
 	document
 		.getElementById("button-addon2")
 		.addEventListener("click", submitComment);
 }
+
 
 appendComment(postId);
 
@@ -232,12 +237,15 @@ setTimeout(()=> {
 
 
 async function dopeIncrementer(postId) {
+	
 	try {
 		const res = await fetch(`https://futureproof-journal.herokuapp.com/journal/${postId}/dope`);
 
-		const data = await res.json();
+		const data = await res.text();
 
-		console.log(data)
+		setTimeout(() => {
+			location.reload();
+		}, 200);
 		
 	} catch (error) {
 		
