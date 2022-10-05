@@ -103,7 +103,12 @@ body{
 
 #commentSection{
     background-color: var(--bg-minor);
-    height: 70%;
+    height: 55%;
+}
+
+#postComment{
+    background-color: var(--bg-minor);
+    height: 15%;
 }
 
 #postCol1{
@@ -131,11 +136,6 @@ body{
     align-items: center;
 }
 
-#postComment{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
 
 @media only screen and (max-width:650px){
