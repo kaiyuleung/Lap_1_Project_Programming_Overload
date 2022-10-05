@@ -40,6 +40,11 @@ body {
 	font-size: 500%;
 }
 
+#scrollSpy{
+	overflow-y: scroll;
+	height: 500px;	/*!work this out*/
+}
+
 /* Front page */ 
 #frontPage {
     background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
