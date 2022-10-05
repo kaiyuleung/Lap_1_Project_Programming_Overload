@@ -8,7 +8,6 @@ async function submitPost(e) {
 		"https://futureproof-journal.herokuapp.com/journal"
 	);
 	const dataOne = await resOne.json();
-	console.log(dataOne.length);
 	// Date & Time
 	const date = Date.now();
 	const today = new Date(date);
@@ -95,7 +94,7 @@ async function appendPost() {
 			const r2c4 = document.createElement("div");
 			const id = document.createElement("span");
 			// Set elements
-			console.log(post);
+
 			dirRow.classList.add("row", "mb-2", "px-4");
 			container.classList.add("container-fluid", "postPreview");
 			r1.classList.add("row");
@@ -129,7 +128,13 @@ async function appendPost() {
 				"justify-content-start"
 			);
 			//!comment count and dope count//
-			r2c2.appendChild(document.createTextNode("comment x DOPE y"));
+			r2c2.appendChild(
+				document.createTextNode(
+					`${post.comments.length > 1 ? "Comments: " : "Comment:"} ${
+						post.comments.length
+					}, DOPE: 0`
+				)
+			);
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
