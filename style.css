@@ -62,10 +62,11 @@ body {
 
 /* !Front page */ 
 #frontPage {
-    background-image: url('./img/indexBackgroundTransparent.png');
+    background-image: url('./img/indexBackgroundImg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+	background-color: white;
 }
 
 
