@@ -12,7 +12,7 @@ body {
 	min-height: 450px;
 	max-height: 2048px;
 	max-width: 3090px;
-	background-color: rgba(0, 0, 0, 0.435);
+	background-color: tan;
 }
 
 .card {
@@ -67,10 +67,11 @@ p{
 
 /* !Front page */ 
 #frontPage {
-    background-image: url('https://img.freepik.com/premium-vector/continuous-line-drawing-teenage-student-writing-notebook_497857-141.jpg?w=2000');
+    background-image: url('./img/indexBackgroundImg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+	background-color: white;
 }
 
 
@@ -81,7 +82,7 @@ p{
 }
 
 #mainPage #allPosts {
-	background-color: tan;
+	/* background-color: tan; */
 	height: 70%;
 }
 
@@ -97,7 +98,7 @@ p{
 .postPreview {
 	border: 1px solid black;
 	border-radius: 5px;
-	background-color: wheat;
+	/* background-color: wheat; */
 }
 
 /* !Post.html */
@@ -147,4 +148,29 @@ p{
     .card-body p{
         font-size: 15px;
     }
+}
+
+
+/*dark mode*/
+
+#darkMode {
+	position: relative;
+	width: 50px;
+	height: 20px;
+	border: 2px solid grey;
+	border-radius: 30px;
+	cursor: pointer;
+	background-color: white;
+}
+
+#darkMode i {
+	position: absolute;
+	font-size: 16px;
+	right: 50px;
+	color: white;
+	cursor: pointer;
+}
+
+#darkMode:hover {
+	background-color: lightgray;
 }

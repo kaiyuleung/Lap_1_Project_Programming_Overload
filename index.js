@@ -223,5 +223,83 @@ async function appendPost() {
 		console.log(error);
 	}
 }
-
 appendPost();
+
+// function myFunction() {
+// 	// const darkModeBtn = document.getElementById("darkModeBtn")
+// 	// const element = document.body;
+// 	// const toPost = document.getElementById("toPost")
+// 	// element.classList.toggle("dark-mode");
+// 	// toPost.classList.toggle("dark-mode")
+// }
+	
+
+// //dark mode//
+
+const darkMode = document.querySelector("#darkMode");
+darkMode.addEventListener("click", () => {
+	switchDarkMode();
+});
+
+function switchDarkMode() {
+	const toPostTitle = document.getElementById("toPostTitle");
+	
+	
+	const toPost = document.getElementById("toPost")
+	const postPreview = document.querySelector(".postPreview")
+	const firstCard = document.querySelector(".card")
+	const postTitle =document.getElementById("postTitle")
+	const postContent = document.getElementById("postContent")
+	const reactionCount = document.querySelector(".reactionCount")
+	const toPostSubmit = document.getElementById("toPostSubmit")
+
+	if (toPostTitle.style.left === "1px") {
+		toPostTitle.style.color = "grey";
+		toPostTitle.style.left = "unset";
+		toPostTitle.style.right = "1px";
+		// borders 
+		postTitle.style.border = "1px solid grey";
+		postContent.style.border = "solid 1px black"
+		//backgrounds
+		document.body.style.backgroundColor = "tan";
+		document.body.style.color = "black";
+
+		toPost.style.backgroundColor = "lightpink";  // make a post form --- works
+		postPreview.style.backgroundColor = "tan"; //ONLY 1st comment -- works
+		firstCard.style.backgroundColor = "white" //only 1st card -- works 
+		postTitle.style.backgroundColor = "white" //Title in "make a post"
+		postContent.style.backgroundColor = "white" //share your story
+		reactionCount.style.backgroundColor = "tan" //1st comment reaction count
+		toPostSubmit.classList = "btn btn-outline-secondary" //submit button 
+
+		//letters
+		toPost.style.color = "black";
+		postPreview.style.color = "black";
+		firstCard.style.color = "black";
+		postTitle.style.color = "black";
+		postContent.style.color = "black"
+	} else {
+		toPostTitle.style.color = "white";
+		toPostTitle.style.left = "1px";
+		toPostTitle.style.right = "unset";
+		// borders
+		postTitle.style.border = "1px solid white"; //border of the to post tiltle
+		postContent.style.border = "solid 1px white"
+		// background colors
+		document.body.style.backgroundColor = "darkgrey";
+		document.body.style.color = "lightgrey";
+		
+		toPost.style.backgroundColor = "black"; //make a post form 
+		postPreview.style.backgroundColor = "darkgrey"; // ONLY 1st comment
+		firstCard.style.backgroundColor = "lightgrey" //ONLY 1st card 
+		postTitle.style.backgroundColor = "black"; //title in "make a post"
+		postContent.style.backgroundColor = "black" //share your story 
+		reactionCount.style.backgroundColor = "darkgrey" //1st comment reaction count
+		toPostSubmit.classList = "btn btn-outline-light" //submit button
+
+		//letters
+		toPost.style.color = "white";
+		postPreview.style.color = "lightgrey";
+		firstCard.style.color = "white";
+	}
+}

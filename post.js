@@ -229,3 +229,55 @@ async function appendComment(postId) {
 	//     </div>
 	// </div>
 }
+
+const darkMode = document.querySelector("#darkMode");
+
+
+darkMode.addEventListener("click", () => {
+	switchDarkMode();
+});
+
+function switchDarkMode() {
+	const post = document.getElementById("post");
+	const card = document.querySelector(".card")
+	const commentSection = document.getElementById("commentSection")
+
+
+	if (post.style.left === "1px") {
+		post.style.color = "grey";
+		post.style.left = "unset";
+		post.style.right = "1px";
+
+		//body
+		document.body.style.backgroundColor = "tan";
+		document.body.style.color = "black";
+
+		// borders 
+
+		//backgrounds
+		post.style.backgroundColor = "pink";
+		card.style.backgroundColor = "white";
+		commentSection.style.backgroundColor = "tan";
+
+		//letters
+
+	} else {
+		post.style.color = "white";
+		post.style.left = "1px";
+		post.style.right = "unset";
+
+		//body
+		document.body.style.backgroundColor = "grey";
+		document.body.style.color = "blue";
+
+		// borders
+
+
+		// background colors
+		post.style.backgroundColor = "grey"
+		card.style.backgroundColor = "lightgrey";
+		commentSection.style.backgroundColor = "black";
+		
+		//letters
+	}
+}
