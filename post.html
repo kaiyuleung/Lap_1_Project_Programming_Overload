@@ -142,7 +142,7 @@
 
                 </div>
             </div>
-
+            
             <div id="postComment" class="row m-0">
                 <div class="container-fluid">
                     <div class="row m-3">
@@ -163,7 +163,7 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Share your story today ..."
+                                    placeholder="Your Comment ..."
                                 />
                                 <button
                                     class="btn btn-outline-secondary"
@@ -175,11 +175,85 @@
                             </div>
                         </div>
                         <div class="col-2">
-                            
+                            <div class="btn-group dropstart">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Emoji
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="like" name="emoji" value="like">
+                                        <label class="px-5" for="like">Like</label>
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="happy" name="emoji" value="happy">
+                                    <label class="px-5" for="happy">Happy</label>
+                                </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="sad" name="emoji" value="sad">
+                                    <label class="px-5" for="sad">Sad</label>
+                                </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <input type="radio" id="none" name="emoji" value="none" checked>
+                                    <label class="px-5" for="none">None</label>
+                                </li>
+                                </ul>
+                            </div>
+                            <!-- GIF section starts -->
+                            <!-- GIF Button -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#giphy">
+                                Giphy
+                            </button>
+                            <!-- GIF Modal -->
+                            <div class="modal fade" id="giphy" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="input-group">
+                                                <input id="GiphySearchKeywords" type="text" class="form-control" placeholder="Search Gif by keywords" aria-label="Search Gif by keywords" aria-describedby="GiphySearch">
+                                                <button id="GiphySearch" class="btn btn-outline-secondary" type="button">Search</button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container text-center">
+                                                <div id="gifSearchResult" class="row row-cols-auto d-flex justify-content-center">
+                                            <!-- todo Gifs append here -->
+                                                    <!-- <div class="col">
+                                                        <input type="radio" id="gif1" name="gif" value="gif1">
+                                                        <label class="p-2 m-2" for="gif1"><img src="*" alt="gif1"></label>
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="radio" id="gif2" name="gif" value="gif2">
+                                                        <label class="p-2 m-2" for="gif2"><img src="*" alt="gif2"></label>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div>
+                                                <input type="radio" id="gifNone" name="gif" value="gifNone" checked>
+                                                <label type="button" class="btn btn-outline-secondary" for="gifNone">None</label>
+                                            </div>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- GIF section ends -->
                         </div>
                     </div>
                 </div>
             </div>
-		</div>
-	</body>
+            
+        </div>
+
+    </body>
 </html>
