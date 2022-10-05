@@ -112,7 +112,8 @@ async function appendPost() {
 			userCardBody.classList.add("card-body", "p-1", "border-top");
 			username.classList.add("card-title", "m-0");
 			username.textContent = post.username;
-			r1c2.classList.add("col", "py-2");
+			r1c2.classList.add("col-8", "py-2");
+			// r1c2.style.width = "100px";
 			title.textContent = post.title;
 			content.textContent = post.content;
 			r1c3.classList.add("col-2", "mt-2", "d-flex", "justify-content-end");
@@ -196,7 +197,7 @@ async function appendPost() {
 							</div>
 						</div>
 					</div>
-					<div class="col py-2">	//?r1c2
+					<div class="col-8 py-2">	//?r1c2
 						<h5>Happy Day!</h5>	//?title
 						<p>Today, I ...<br>...</p>	//?content
 					</div>

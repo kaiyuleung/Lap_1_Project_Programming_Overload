@@ -38,6 +38,11 @@ body {
 	font-size: 500%;
 }
 
+/* text wrap */
+p{
+	word-break: break-word;
+}
+
 /* radio buttons*/
 [type=radio] { 
     position: absolute;

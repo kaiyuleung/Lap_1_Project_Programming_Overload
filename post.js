@@ -72,9 +72,10 @@ async function getAndSetSpecificJournal(id) {
 	idElm.textContent = `ID: ${data.id}`;
 	username.textContent = data.username;
 	// Get all comments
-	document
-		.getElementById("button-addon2")
-		.addEventListener("click", submitComment);
+	// document
+	// 	.getElementById("button-addon2")
+	// 	.addEventListener("click", submitComment);
+	document.getElementById("postComment").addEventListener('submit',submitComment);
 }
 
 appendComment(postId);
@@ -88,6 +89,7 @@ async function appendComment(postId) {
 		const data = await res.json();
 		data.comments.length > 0 &&
 			data.comments.map((comment) => {
+				console.log(comment);
 				// Grab hold directory
 				const nav = document.getElementById("scrollSpyNavDir");
 				const dir = document.getElementById("scrollSpyDir");
@@ -116,9 +118,9 @@ async function appendComment(postId) {
 				const id = document.createElement("span");
 				// Set elements
 				navA.classList.add('p-1', 'rounded');
-				navA.href = `#comment${comment.commentId.substring(0, 4)}`;
-				navA.textContent = `${comment.commentId.substring(0, 4)}`;
-				dirRow.id = `comment${comment.commentId.substring(0, 4)}`;
+				navA.href = `#comment${comment.commentId}`;
+				navA.textContent = `${comment.commentId}`;
+				dirRow.id = `comment${comment.commentId}`;
 				dirRow.classList.add("row", "mb-2", "px-4");
 				container.classList.add("container-fluid", "comment");
 				r1.classList.add("row");
@@ -130,10 +132,10 @@ async function appendComment(postId) {
 				userCardBody.classList.add("card-body", "p-1", "border-top");
 				username.classList.add("card-title", "m-0");
 				username.textContent = comment.commentUsername;
-				r1c2.classList.add("col", "m-2", "commentContent");
+				r1c2.classList.add("col-6", "m-2", "commentContent");
 				content.textContent = comment.commentBody;
 				r1c3.classList.add(
-					"col-4",
+					"col-3",
 					"py-2",
 					"d-flex",
 					"justify-content-between"
@@ -162,7 +164,7 @@ async function appendComment(postId) {
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `${comment.commentId.substring(0, 4)}`;
+				id.textContent = `${comment.commentId}`;
 
 				// Append elements
 				nav.after(navA);
@@ -204,10 +206,10 @@ async function appendComment(postId) {
 	//                     </div>
 	//                 </div>
 	//             </div>
-	//             <div class="col m-2 commentContent">  //?r1c2//
+	//             <div class="col-6 m-2 commentContent">  //?r1c2//
 	//                 <p>I have a nice day too!</p>  //?content//
 	//             </div>
-	//             <div class="col-4 py-2 d-flex justify-content-between">  //?r1c3//
+	//             <div class="col-3 py-2 d-flex justify-content-between">  //?r1c3//
 	//                 <img src="" alt="emoji" height="80px" width="80px">  //?emoji//
 	//                 <img src="" alt="gif" height="80px" width="80px">    //?gif//
 	//             </div>

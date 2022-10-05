@@ -97,7 +97,7 @@
 
 							</div>
 						</div>
-						<div class="col">
+						<div class="col-11">
 							<div
                                 id="scrollSpy"
 								data-bs-spy="scroll"
@@ -123,10 +123,10 @@
 													</div>
 												</div>
 											</div>
-											<div class="col m-2 commentContent">
+											<div class="col-6 m-2 commentContent">
 												<p>I have a nice day too!</p>
 											</div>
-											<div class="col-4 py-2 d-flex justify-content-between">
+											<div class="col-3 py-2 d-flex justify-content-between">
 												<img src="" alt="emoji" height="80px" width="80px" />
 												<img src="" alt="gif" height="80px" width="80px" />
 											</div>
@@ -161,7 +161,7 @@
 				</div>
 			</div>
 
-			<div id="postComment" class="row m-0">
+			<form id="postComment" class="row m-0">
 				<div class="container-fluid">
 					<div class="row m-3">
 						<div class="col-2">
@@ -178,15 +178,18 @@
 						</div>
 						<div class="col">
 							<div class="input-group mb-3" style="width: 100%; height: 100%">
-								<input
+								<textarea
+                                    id="new-comment"
 									type="text"
 									class="form-control"
 									placeholder="Your Comment ..."
-									id="new-comment"
-								/>
+									maxlength="280"
+                                    style = "resize: none;"
+                                    required
+								></textarea>
 								<button
 									class="btn btn-outline-secondary"
-									type="button"
+									type="submit"
 									id="button-addon2"
 								>
 									Submit
@@ -318,7 +321,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</body>
 </html>

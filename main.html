@@ -114,12 +114,21 @@
                                 </li>
                                 </ul>
                             </div>                    
-                            <input id="postTitle" type="text" class="form-control" placeholder="Title" maxlength="50">
+                            <input id="postTitle" type="text" class="form-control" placeholder="Title" maxlength="50" required>
                             
                         </div>
 
                         <div class="input-group" style="width: 100%; height:80%;">
-                            <input id="postContent" type="text" class="form-control" placeholder="Share your story today ..." maxlength="280">
+                            <textarea 
+                            id="postContent" 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Share your today's story  ..." 
+                            maxlength="280"
+                            form = "toPostContent";
+                            style = "resize: none;"
+                            required
+                            ></textarea>
                             
                             <input id="toPostSubmit" class="btn btn-outline-secondary" type="Submit"  value="Submit"></input>
                         </div>
@@ -150,11 +159,11 @@
                             <a class="p-1 rounded" href="#examplePost">id</a>
 
                             <span id="scrollSpyNavDir"></span>
-                            <!-- todo New Comment id links here -->
+                            <!-- todo New Post id links here -->
 
                         </div>
                     </div>
-                    <div class="col p-0">
+                    <div class="col-11 p-0">
                         <div id="scrollSpy" data-bs-spy="scroll" data-bs-target="#scrollSpyNav" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                             <!-- !Example post entry -->
                             <div id="examplePost" class="row mb-2 px-4">
