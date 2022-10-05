@@ -139,7 +139,7 @@ async function appendPost() {
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-			id.textContent = post.id;
+			id.textContent = `ID: ${post.id}`;
 
 			// Append elements
 			dir.after(dirRow);
@@ -174,8 +174,8 @@ async function appendPost() {
 			});
 		});
 
-// todo Example appending post
-/* <div class="row mb-2 px-4">
+		// todo Example appending post
+		/* <div class="row mb-2 px-4">
     <div class="container-fluid postPreview">
         <div class="row">
             <div class="col-2 py-2 d-flex justify-content-center">
