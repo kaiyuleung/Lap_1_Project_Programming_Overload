@@ -129,7 +129,13 @@ async function appendPost() {
 				"justify-content-start"
 			);
 			//!comment count and dope count//
-			r2c2.appendChild(document.createTextNode("comment x DOPE y"));
+			r2c2.appendChild(
+				document.createTextNode(
+					`${post.comments.length > 1 ? "Comments: " : "Comment:"} ${
+						post.comments.length
+					}, DOPE: 0`
+				)
+			);
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
