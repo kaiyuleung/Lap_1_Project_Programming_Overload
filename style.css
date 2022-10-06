@@ -77,8 +77,10 @@ p{
 
 /* !Main.html */
 #mainPage #toPost {
+	position: relative;
 	background-color: var(--bg-major);
-	height: 30%;
+	height: 60%;
+	width:100%;
 }
 
 #mainPage #allPosts {
@@ -123,7 +125,6 @@ p{
 	border: 1px solid black;
 	border-radius: 5px;
 }
-
 .comment {
 	border: 1px solid black;
 	border-radius: 5px;
@@ -144,6 +145,8 @@ p{
         font-size: 15px;
     }
 }
+
+
 
 
 /*!dark mode*/
