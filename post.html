@@ -18,214 +18,271 @@
 			crossorigin="anonymous"
 		></script>
 
-        <!-- CSS & JS -->
-        <link rel="stylesheet" href="./style.css">
-        <script defer src="./post.js"></script>
-        <script defer src="./giphy.js"></script>
+		<!-- CSS & JS -->
+		<link rel="stylesheet" href="./style.css" />
+		<script defer src="./post.js"></script>
+		<script defer src="./giphy.js"></script>
 
 		<!-- Title & Icon -->
 		<title>Programming Overload Journal</title>
 		<link rel="shortcut icon" href="./img/icon.png" type="image/x-icon" />
 	</head>
 
-
 	<body>
 		<div id="postPage" class="container-fluid p-0" style="height: 100%">
-
 			<div id="post" class="row m-0">
-                <div class="container-fluid">
-                    <div class="row" style="height: 90%">
-                        <div id="postCol1" class="col-2 py-2">
-                            <a role="button" class="btn btn-secondary" href="./main.html"
-                                >Back</a
-                            >
-                            <div class="card">
-                                <img
-                                    src="./img/userlcon/defaultUser.png"
-                                    class="card-img-top"
-                                    alt="Default User Icon"
-                                    id="journal-icon"
-                                />
-                                <div class="card-body p-1 border-top">
-                                    <p class="card-title m-0">User1</p>
-                                </div>
-                            </div>
-                            <img src="" alt="emoji" height="80px" width="80px" />
-                            <img src="" alt="gif" height="80px" width="80px" />
-                        </div>
-                        <div id="postContent" class="col m-2">
-                            <h5 class="my-2" id="journal-title">Happy Day!</h5>
-                            <p class="mx-2" id="journal-content">
-                                Today, I went to the beach.<br />
-                                It was great.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-center">
-                            <button class="btn btn-sm btn-outline-danger">DOPE</button>
-                        </div>
-                        <div class="col mx-2 reactionCount d-flex justify-content-start">
-                            comment x DOPE y
-                        </div>
-                        <div class="col d-flex justify-content-end" id="journal-date">
-                            14:21 03/Oct/2022
-                        </div>
-                        <div class="col-1 d-flex justify-content-end" id="journal-id">id</div>
-                    </div>
-                </div>
-            </div>
+				<div class="container-fluid">
+					<div class="row" style="height: 90%">
+						<div id="postCol1" class="col-2 py-2">
+							<a role="button" class="btn btn-secondary" href="./main.html"
+								>Back</a
+							>
+							<div class="card">
+								<img
+									src="./img/userlcon/defaultUser.png"
+									class="card-img-top"
+									alt="Default User Icon"
+									id="journal-icon"
+								/>
+								<div class="card-body p-1 border-top">
+									<p class="card-title m-0" id="journal-username">User1</p>
+								</div>
+							</div>
+							<img src="" alt="emoji" height="80px" width="80px" />
+							<img src="" alt="gif" height="80px" width="80px" />
+						</div>
+						<div id="postContent" class="col m-2">
+							<h5 class="my-2" id="journal-title">Happy Day!</h5>
+							<p class="mx-2" id="journal-content">
+								Today, I went to the beach.<br />
+								It was great.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2 d-flex justify-content-center">
+							<button class="btn btn-sm btn-outline-primary emojiOne-btn">
+								😀
+							</button>
+							<button class="btn btn-sm btn-outline-success emojiTwo-btn">
+								🔥
+							</button>
+							<button class="btn btn-sm btn-outline-danger emojiThree-btn">
+								❤
+							</button>
+						</div>
+						<div
+							class="col mx-2 reactionCount d-flex justify-content-start dopeCounter"
+						>
+							comment x DOPE y
+						</div>
+						<div class="col d-flex justify-content-end" id="journal-date">
+							14:21 03/Oct/2022
+						</div>
+						<div
+							class="col-1 d-flex justify-content-end dopeId"
+							id="journal-id"
+						>
+							id
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div id="commentSection" class="row m-0">
-                <div class="container-fluid">
-                    <div id="commentSectionTitle" class="row p-2">
-                        <div class="col">
-                            <h1>All Comments</h1>
-                        </div>
-                    </div>
+			<div id="commentSection" class="row m-0">
+				<div class="container-fluid">
+					<div id="commentSectionTitle" class="row p-2">
+						<div class="col">
+							<h1>All Comments</h1>
+						</div>
+					</div>
 
-                    <div class="row">
-                        <div class="col-1">
-                            <div id="scrollSpy" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                                <a class="p-1 rounded" href="#exampleComment">1</a>
-                                <!-- todo New Comment id links here -->
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div data-bs-spy="scroll" data-bs-target="#scrollSpy" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                                <!-- !Example comment entry -->
-                                <div id="exampleComment" class="row mb-2 px-4">
-                                    <div class="container-fluid comment">
-                                        <div class="row">
-                                            <div class="col-2 py-2 d-flex justify-content-center">
-                                                <div class="card">
-                                                    <img
-                                                        src="./img/userlcon/defaultUser.png"
-                                                        class="card-img-top"
-                                                        alt="Default User Icon"
-                                                    />
-                                                    <div class="card-body p-1 border-top">
-                                                        <p class="card-title m-0">User1</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col m-2 commentContent">
-                                                <p>I have a nice day too!</p>
-                                            </div>
-                                            <div class="col-4 py-2 d-flex justify-content-between">
-                                                <img src="" alt="emoji" height="80px" width="80px" />
-                                                <img src="" alt="gif" height="80px" width="80px" />
-                                            </div>
-                                        </div>
-                                        <div class="row pb-2">
-                                            <div class="col-2 d-flex justify-content-center">
-                                                <button class="btn btn-sm btn-outline-danger">DOPE</button>
-                                            </div>
-                                            <div
-                                                class="col ms-2 reactionCount d-flex justify-content-start"
-                                            >
-                                                comment x DOPE y
-                                            </div>
-                                            <div class="col d-flex justify-content-end">
-                                                <span>14:21 03/Oct/2022</span>
-                                            </div>
-                                            <div class="col-1 d-flex justify-content-end">
-                                                <span>id</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- todo New Comment Appends Here -->
-                            </div>
-                        </div>
-                    </div>
+					<div class="row">
+						<div class="col-1">
+							<div
+								id="scrollSpy"
+								class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center"
+							>
+								<a class="p-1 rounded" href="#exampleComment">1</a>
+								<!-- todo New Comment id links here -->
+							</div>
+						</div>
+						<div class="col">
+							<div
+								data-bs-spy="scroll"
+								data-bs-target="#scrollSpy"
+								data-bs-offset="0"
+								data-bs-smooth-scroll="true"
+								class="scrollspy-example"
+								tabindex="0"
+							>
+								<!-- !Example comment entry -->
+								<div id="exampleComment" class="row mb-2 px-4">
+									<div class="container-fluid comment">
+										<div class="row">
+											<div class="col-2 py-2 d-flex justify-content-center">
+												<div class="card">
+													<img
+														src="./img/userlcon/defaultUser.png"
+														class="card-img-top"
+														alt="Default User Icon"
+													/>
+													<div class="card-body p-1 border-top">
+														<p class="card-title m-0">User1</p>
+													</div>
+												</div>
+											</div>
+											<div class="col m-2 commentContent">
+												<p>I have a nice day too!</p>
+											</div>
+											<div class="col-4 py-2 d-flex justify-content-between">
+												<img src="" alt="emoji" height="80px" width="80px" />
+												<img src="" alt="gif" height="80px" width="80px" />
+											</div>
+										</div>
+										<div class="row pb-2">
+											<div class="col-2 d-flex justify-content-center">
+												<button class="btn btn-sm btn-outline-danger">
+													DOPE
+												</button>
+											</div>
+											<div
+												class="col ms-2 reactionCount d-flex justify-content-start"
+											>
+												comment x DOPE y
+											</div>
+											<div class="col d-flex justify-content-end">
+												<span>14:21 03/Oct/2022</span>
+											</div>
+											<div class="col-1 d-flex justify-content-end">
+												<span class="dopeId">id</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- todo New Comment Appends Here -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                </div>
-            </div>
-            
-            <div id="postComment" class="row m-0">
-                <div class="container-fluid">
-                    <div class="row m-3">
-                        <div class="col-2">
-                            <div class="card">
-                                <img
-                                    src="./img/userlcon/defaultUser.png"
-                                    class="card-img-top"
-                                    alt="Default User Icon"
-                                />
-                                <div class="card-body p-1 border-top">
-                                    <p class="card-title m-0">User1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group mb-3" style="width: 100%; height: 100%">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Your Comment ..."
-                                />
-                                <button
-                                    class="btn btn-outline-secondary"
-                                    type="button"
-                                    id="button-addon2"
-                                >
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="btn-group dropstart">
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Emoji
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="d-flex justify-content-center">
-                                        <input type="radio" id="like" name="emoji" value="like">
-                                        <label class="px-5" for="like">Like</label>
-                                    </li>
-                                    <li class="d-flex justify-content-center">
-                                        <input type="radio" id="happy" name="emoji" value="happy">
-                                    <label class="px-5" for="happy">Happy</label>
-                                </li>
-                                    <li class="d-flex justify-content-center">
-                                        <input type="radio" id="sad" name="emoji" value="sad">
-                                    <label class="px-5" for="sad">Sad</label>
-                                </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li class="d-flex justify-content-center">
-                                        <input type="radio" id="none" name="emoji" value="none" checked>
-                                    <label class="px-5" for="none">None</label>
-                                </li>
-                                </ul>
-                            </div>
-                            <!-- GIF section starts -->
-                            <!-- GIF Button -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#giphy">
-                                Giphy
-                            </button>
-                            <!-- GIF Modal -->
-                            <div class="modal fade" id="giphy" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <div class="input-group">
-                                                <input id="GiphySearchKeywords" type="text" class="form-control" placeholder="Search Gif by keywords" aria-label="Search Gif by keywords" aria-describedby="GiphySearch">
-                                                <button id="GiphySearch" class="btn btn-outline-secondary" type="button">Search</button>
-                                            </div>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container text-center">
-                                                <div id="gifSearchResult" class="row row-cols-auto d-flex justify-content-center">
-                                            <!-- todo Gifs append here -->
-                                                    <!-- <div class="col">
+			<div id="postComment" class="row m-0">
+				<div class="container-fluid">
+					<div class="row m-3">
+						<div class="col-2">
+							<div class="card">
+								<img
+									src="./img/userlcon/defaultUser.png"
+									class="card-img-top"
+									alt="Default User Icon"
+								/>
+								<div class="card-body p-1 border-top">
+									<p class="card-title m-0">User1</p>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="input-group mb-3" style="width: 100%; height: 100%">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Your Comment ..."
+									id="new-comment"
+								/>
+								<button
+									class="btn btn-outline-secondary"
+									type="button"
+									id="button-addon2"
+								>
+									Submit
+								</button>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="btn-group dropstart">
+								<button
+									type="button"
+									class="btn btn-secondary dropdown-toggle"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Emoji
+								</button>
+								<ul class="dropdown-menu">
+									<li class="d-flex justify-content-center">
+										<input type="radio" id="like" name="emoji" value="like" />
+										<label class="px-5" for="like">Like</label>
+									</li>
+									<li class="d-flex justify-content-center">
+										<input type="radio" id="happy" name="emoji" value="happy" />
+										<label class="px-5" for="happy">Happy</label>
+									</li>
+									<li class="d-flex justify-content-center">
+										<input type="radio" id="sad" name="emoji" value="sad" />
+										<label class="px-5" for="sad">Sad</label>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li class="d-flex justify-content-center">
+										<input
+											type="radio"
+											id="none"
+											name="emoji"
+											value="none"
+											checked
+										/>
+										<label class="px-5" for="none">None</label>
+									</li>
+								</ul>
+							</div>
+							<!-- GIF section starts -->
+							<!-- GIF Button -->
+							<button
+								type="button"
+								class="btn btn-primary"
+								data-bs-toggle="modal"
+								data-bs-target="#giphy"
+							>
+								Giphy
+							</button>
+							<!-- GIF Modal -->
+							<div
+								class="modal fade"
+								id="giphy"
+								tabindex="-1"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<div class="input-group">
+												<input
+													id="GiphySearchKeywords"
+													type="text"
+													class="form-control"
+													placeholder="Search Gif by keywords"
+													aria-label="Search Gif by keywords"
+													aria-describedby="GiphySearch"
+												/>
+												<button
+													id="GiphySearch"
+													class="btn btn-outline-secondary"
+													type="button"
+												>
+													Search
+												</button>
+											</div>
+										</div>
+										<div class="modal-body">
+											<div class="container text-center">
+												<div
+													id="gifSearchResult"
+													class="row row-cols-auto d-flex justify-content-center"
+												>
+													<!-- todo Gifs append here -->
+													<!-- <div class="col">
                                                         <input type="radio" id="gif1" name="gif" value="gif1">
                                                         <label class="p-2 m-2" for="gif1"><img src="*" alt="gif1"></label>
                                                     </div>
@@ -233,27 +290,41 @@
                                                         <input type="radio" id="gif2" name="gif" value="gif2">
                                                         <label class="p-2 m-2" for="gif2"><img src="*" alt="gif2"></label>
                                                     </div> -->
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <div>
-                                                <input type="radio" id="gifNone" name="gif" value="gifNone" checked>
-                                                <label type="button" class="btn btn-outline-secondary" for="gifNone">None</label>
-                                            </div>
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- GIF section ends -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </body>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<div>
+												<input
+													type="radio"
+													id="gifNone"
+													name="gif"
+													value="gifNone"
+													checked
+												/>
+												<label
+													type="button"
+													class="btn btn-outline-secondary"
+													for="gifNone"
+													>None</label
+												>
+											</div>
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-bs-dismiss="modal"
+											>
+												Close
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- GIF section ends -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

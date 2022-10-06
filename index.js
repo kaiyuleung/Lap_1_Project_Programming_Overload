@@ -3,11 +3,6 @@ document.getElementById("toPostContent").addEventListener("submit", submitPost);
 async function submitPost(e) {
 	// Prevent Refresh
 	e.preventDefault();
-	// Setting Id
-	const resOne = await fetch(
-		"https://futureproof-journal.herokuapp.com/journal"
-	);
-	const dataOne = await resOne.json();
 	// Date & Time
 	const date = Date.now();
 	const today = new Date(date);
@@ -15,29 +10,18 @@ async function submitPost(e) {
 	const time = new Date().toLocaleTimeString();
 	// New Journal
 	const postData = {
-		id: dataOne.length + 1,
+		id: 0,
 		title: e.target.postTitle.value,
 		content: e.target.postContent.value,
 		username: "",
 		icon: "",
-		emoji: [
-			{
-				emojiUsed: false,
-				emojiOne: 0,
-			},
-			{
-				emojiUsed: false,
-				emojiTwo: 0,
-			},
-			{
-				emojiUsed: false,
-				emojiThree: 0,
-			},
-		],
+		emojiOne: 0,
+		emojiTwo: 0,
+		emojiThree: 0,
 		gif: e.target.gif.value, //!This is the selected gif's URL
 		date: todaysDate,
 		time: time,
-		comments: [{}],
+		comments: [],
 	};
 	sendToBackend(postData);
 	appendPost();
@@ -47,7 +31,7 @@ async function submitPost(e) {
 	}, 200);
 }
 
-async function sendToBackend(newEntry) {
+async function sendToBackend(postData) {
 	try {
 		fetch("https://futureproof-journal.herokuapp.com/journal/", {
 			method: "POST",
@@ -55,7 +39,7 @@ async function sendToBackend(newEntry) {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(newEntry),
+			body: JSON.stringify(postData),
 		});
 	} catch (error) {
 		console.log(error);
@@ -69,7 +53,6 @@ async function appendPost() {
 		);
 		const data = await res.json();
 		data.map((post) => {
-			console.log(post);
 			// Grab hold directory
 			const dir = document.getElementById("examplePost");
 			// Create elements
@@ -88,7 +71,9 @@ async function appendPost() {
 			const view = document.createElement("a");
 			const r2 = document.createElement("div");
 			const r2c1 = document.createElement("div");
-			const dope = document.createElement("div");
+			const emojiOne = document.createElement("div");
+			const emojiTwo = document.createElement("div");
+			const emojiThree = document.createElement("div");
 			const r2c2 = document.createElement("div");
 			const r2c3 = document.createElement("div");
 			const timeDate = document.createElement("span");
@@ -118,8 +103,39 @@ async function appendPost() {
 			view.appendChild(document.createTextNode("View"));
 			r2.classList.add("row", "pb-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
-			dope.textContent = "DOPE";
+			emojiOne.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-primary",
+				"emojiOne-btn"
+			);
+			emojiOne.setAttribute("data-id", post.id);
+
+			emojiOne.textContent = "😀";
+			// dope.appendChild(document.createTextNode("DOPE"));
+			r2c2.classList.add(
+				"col",
+				"ms-2",
+				"reactionCount",
+				"d-flex",
+				"justify-content-start"
+			);
+			emojiTwo.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-success",
+				"emojiTwo-btn"
+			);
+			emojiTwo.setAttribute("data-id", post.id);
+			emojiTwo.textContent = "🔥";
+			emojiThree.classList.add(
+				"btn",
+				"btn-sm",
+				"btn-outline-danger",
+				"emojiThree-btn"
+			);
+			emojiThree.setAttribute("data-id", post.id);
+			emojiThree.textContent = "❤";
 			// dope.appendChild(document.createTextNode("DOPE"));
 			r2c2.classList.add(
 				"col",
@@ -129,11 +145,15 @@ async function appendPost() {
 				"justify-content-start"
 			);
 			//!comment count and dope count//
-			r2c2.appendChild(document.createTextNode("comment x DOPE y"));
+			r2c2.appendChild(
+				document.createTextNode(
+					`Comments: ${post.comments.length} - 😀 ${post.emojiOne} 🔥 ${post.emojiTwo} ❤ ${post.emojiThree}`
+				)
+			);
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-			id.textContent = post.id;
+			id.textContent = `ID: ${post.id}`;
 
 			// Append elements
 			dir.after(dirRow);
@@ -151,7 +171,9 @@ async function appendPost() {
 			r1c3.appendChild(view);
 			container.appendChild(r2);
 			r2.appendChild(r2c1);
-			r2c1.appendChild(dope);
+			r2c1.appendChild(emojiOne);
+			r2c1.appendChild(emojiTwo);
+			r2c1.appendChild(emojiThree);
 			r2.appendChild(r2c2);
 			r2.appendChild(r2c3);
 			r2c3.appendChild(timeDate);
@@ -167,7 +189,78 @@ async function appendPost() {
 				}, 250);
 			});
 		});
+	} catch (error) {
+		console.log(error);
+	}
+}
 
+appendPost();
+
+// Emoji One
+setTimeout(() => {
+	const emojiOneBtn = document.querySelectorAll(".emojiOne-btn");
+	emojiOneBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiOneIncrementor(id);
+		});
+	});
+}, 500);
+
+async function emojiOneIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiOne`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+// Emoji Two
+setTimeout(() => {
+	const emojiTwoBtn = document.querySelectorAll(".emojiTwo-btn");
+	emojiTwoBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiTwoIncrementor(id);
+		});
+	});
+}, 500);
+
+async function emojiTwoIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiTwo`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+// Emoji Three
+setTimeout(() => {
+	const emojiThreeBtn = document.querySelectorAll(".emojiThree-btn");
+	emojiThreeBtn.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			const id = e.target.getAttribute("data-id");
+			emojiThreeIncrementor(id);
+		});
+	});
+}, 500);
+
+async function emojiThreeIncrementor(id) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emojiThree`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
 // todo Example appending post
 /* <div class="row mb-2 px-4">
     <div class="container-fluid postPreview">
@@ -202,9 +295,3 @@ async function appendPost() {
         </div>
     </div>
 </div> */
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-appendPost();
