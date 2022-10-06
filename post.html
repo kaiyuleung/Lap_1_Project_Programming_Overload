@@ -50,7 +50,7 @@
 								</div>
 							</div>
 							<!-- Gif Preview -->
-							<img id="gifPreview" class="img-thumbnail card" src="./img/gifNotFound.jpg" alt="Gif Preview" >
+							<img id="postGif" class="img-thumbnail card" src="./img/gifNotFound.jpg" alt="Gif Preview" >
 						</div>
 
 						<div id="postContent" class="col m-2">
@@ -132,10 +132,10 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-6 m-2 commentContent">
+											<div class="col m-2 commentContent">
 												<p>I have a nice day too!</p>
 											</div>
-											<div class="col-3 py-2 d-flex justify-content-between">
+											<div class="col-4 py-2 d-flex justify-content-between">
 												<img class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >
 											</div>
 										</div>
@@ -167,7 +167,7 @@
 
 			<form id="postComment" class="row m-0" >
 					<div class="container-fluid p-0">
-						<div class="row m-3" >
+						<div class="row m-3">
 							<div class="col-2">
 								<div class="card" style="max-width: 100%;">
 									<img
@@ -201,11 +201,12 @@
 								</div>
 							</div>
 							<div class="col-3 d-flex flex-column align-items-center">
-								<img class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >
+							<!-- Gif Preview -->
+							<img id="gifPreview" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >
 								<!-- GIF Button -->
 								<button
 									type="button"
-									class="btn btn-primary"
+									class="btn btn-primary btn-sm"
 									data-bs-toggle="modal"
 									data-bs-target="#giphy"
 								>

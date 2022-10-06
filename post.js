@@ -1,3 +1,14 @@
+document.getElementById('GiphySearch').addEventListener('click',x =>{
+	setTimeout(() => {
+		for (const radio of document.querySelectorAll('input[name="gif"]')){
+				radio.addEventListener('click', e => {
+					const gifPreview = document.getElementById("gifPreview");
+					gifPreview.src = gifPreview.src.slice(0,4) == "http" ? e.target.value : "./img/gifNotFound.jpg";
+				})
+			}
+	}, 200);
+});
+
 // Post Attributes
 const title = document.querySelector("#journal-title");
 const content = document.querySelector("#journal-content");
@@ -6,9 +17,9 @@ const date = document.querySelector("#journal-date");
 const idElm = document.querySelector("#journal-id");
 const username = document.querySelector("#journal-username");
 const postId = getId();
-const gifPreview = document.getElementById('gifPreview');
+const postGif = document.getElementById('postGif');
 
-// Get  Id from local storage
+// Get Id from local storage
 function getId() {
 	const id = localStorage.getItem("id");
 	getAndSetSpecificJournal(id);
@@ -18,10 +29,10 @@ function getId() {
 getId();
 
 function submitComment(e) {
+	// Prevent Refresh
 	e.preventDefault();
 	// Get Elements
 	const newComment = document.querySelector("#new-comment").value;
-	console.log(newComment);
 	// Check character length
 	if (newComment.length > 220)
 		return window.alert("Sorry too long, enter less than 220 characters.");
@@ -33,7 +44,7 @@ function submitComment(e) {
 		commentBody: newComment,
 		commentDate: new Date().toLocaleDateString("en-GB"),
 		commentTime: new Date().toLocaleTimeString("en-GB"),
-		gif: "",
+		gif: e.target.gif.value,
 		like: 0,
 		dislike: 0,
 	};
@@ -75,7 +86,7 @@ async function getAndSetSpecificJournal(id) {
 	date.textContent = data.time + " " + data.date;
 	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
-	gifPreview.src = data.gif.slice(0,4) == "http" ? data.gif : "./img/gifNotFound.jpg";
+	postGif.src = data.gif.slice(0,4) == "http" ? data.gif : "./img/gifNotFound.jpg";
 	document.getElementById("commentCount").textContent = `Comments ${data.comments.length}`;
 	document.getElementById("emojiOneCount").textContent = `😀 ${data.emojiOne}`;
 	document.getElementById("emojiOneCount").setAttribute('data-id', postId);
@@ -100,8 +111,7 @@ async function appendComment(postId) {
 		);
 		const data = await res.json();
 		data.comments.length > 0 &&
-			data.comments.map((comment) => {
-				console.log(comment);
+			data.comments.map((comment,index) => {
 				// Grab hold directory
 				const nav = document.getElementById("scrollSpyNavDir");
 				const dir = document.getElementById("scrollSpyDir");
@@ -130,9 +140,9 @@ async function appendComment(postId) {
 				const id = document.createElement("span");
 				// Set elements
 				navA.classList.add('p-1', 'rounded');
-				navA.href = `#comment${comment.commentId}`;
-				navA.textContent = `${comment.commentId}`;
-				dirRow.id = `comment${comment.commentId}`;
+				navA.href = `#comment${index}`;
+				navA.textContent = `${index}`;
+				dirRow.id = `comment${index}`;
 				dirRow.classList.add("row", "mb-2", "px-4");
 				container.classList.add("container-fluid", "comment");
 				r1.classList.add("row");
@@ -144,16 +154,11 @@ async function appendComment(postId) {
 				userCardBody.classList.add("card-body", "p-1", "border-top");
 				username.classList.add("card-title", "m-0");
 				username.textContent = comment.commentUsername;
-				r1c2.classList.add("col-6", "m-2", "commentContent");
+				r1c2.classList.add("col", "m-2", "commentContent");
 				content.textContent = comment.commentBody;
-				r1c3.classList.add(
-					"col-3",
-					"py-2",
-					"d-flex",
-					"justify-content-between"
-				);
-				commentIDGif.id = `comment${comment.commentId}Gif`;
-				commentIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
+				r1c3.classList.add("col-4", "py-2", "d-flex", "justify-content-between");
+				commentIDGif.id = `comment${index}Gif`;
+				commentIDGif.classList.add('img-thumbnail');
 				commentIDGif.src = comment.gif.slice(0,4) == "http" ? comment.gif : "./img/gifNotFound.jpg";
 				commentIDGif.alt = "Gif Preview";
 				r2.classList.add("row", "pb-2");
@@ -168,7 +173,7 @@ async function appendComment(postId) {
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
-				id.textContent = `${comment.commentId}`;
+				id.textContent = `${index}`;
 
 				// Append elements
 				nav.after(navA);
@@ -215,11 +220,11 @@ async function appendComment(postId) {
 	//                     </div>
 	//                 </div>
 	//             </div>
-	//             <div class="col-6 m-2 commentContent">  //?r1c2//
+	//             <div class="col m-2 commentContent">  //?r1c2//
 	//                 <p>I have a nice day too!</p>  //?content//
 	//             </div>
-	//             <div class="col-3 py-2 d-flex justify-content-between">  //?r1c3//
-	// 				<img id="commentIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview">	//?commentIDGif
+	//             <div class="col-4 py-2 d-flex justify-content-between">  //?r1c3//
+	// 				<img id="commentIDGif" class="img-thumbnail" src="./img/gifNotFound.jpg" alt="Gif Preview">	//?commentIDGif
 	//             </div>
 	//         </div>
 	//         <div class="row pb-2">   //?r2//
@@ -268,7 +273,7 @@ async function emojiIncrementor(id, emoji) {
 //Like/Dislike Update
 for (let reaction of ["like", "dislike"]){
 	setTimeout(() => {
-		const reactionBtn = document.querySelectorAll(`${reaction}-btn`);
+		const reactionBtn = document.querySelectorAll(`.${reaction}-btn`);
 		reactionBtn.forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				const id = e.target.getAttribute("data-id");
@@ -281,6 +286,7 @@ for (let reaction of ["like", "dislike"]){
 
 async function reactionIncrementor(id, reaction) {
 	try {
+		console.log(id,reaction);
 		await fetch(
 			`https://futureproof-journal.herokuapp.com/journal/${id}/${reaction}`
 		);

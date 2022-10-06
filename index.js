@@ -115,18 +115,18 @@ async function appendPost() {
 			userCardBody.classList.add("card-body", "p-1", "border-top");
 			username.classList.add("card-title", "m-0");
 			username.textContent = post.username;
-			r1c2.classList.add("col-7", "py-2");
+			r1c2.classList.add("col", "py-2");
 			// r1c2.style.width = "100px";
 			title.textContent = post.title;
 			content.textContent = post.content;
-			r1c3.classList.add('col-3', 'mt-2', 'd-flex', 'flex-column', 'align-items-end', 'justify-content-between');
+			r1c3.classList.add('col-4', 'mt-2', 'd-flex', 'flex-column', 'align-items-end', 'justify-content-between');
 			view.setAttribute("role", "button");
 			view.classList.add("btn", "btn-secondary");
 			// view.href = "./post.html";
 			view.style.height = "40px";
 			view.textContent = "View";
 			postIDGif.id = `post${post.id}Gif`;
-			postIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
+			postIDGif.classList.add('img-thumbnail', 'mb-3');
 			postIDGif.src = post.gif.slice(0,4) == "http" ? post.gif : "./img/gifNotFound.jpg";
 			postIDGif.alt = "Gif Preview";
 			r2.classList.add("row", "py-2");
@@ -208,13 +208,13 @@ async function appendPost() {
 							</div>
 						</div>
 					</div>
-					<div class="col-7 py-2">	//?r1c2
+					<div class="col py-2">	//?r1c2
 						<h5>Happy Day!</h5>	//?title
 						<p>Today, I ...<br>...</p>	//?content
 					</div>
-					<div class="col-3 mt-2 d-flex flex-column align-items-end justify-content-between">	//?r1c3
+					<div class="col-4 mt-2 d-flex flex-column align-items-end justify-content-between">	//?r1c3
 						<a role="button" class="btn btn-secondary" href="./post.html" style="height:40px;">View</a>	//?view
-						<img id="postIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >	//?postIDGif
+						<img id="postIDGif" class="img-thumbnail mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >	//?postIDGif
 					</div>
 				</div>
 				<div class="row py-2">	//?r2
