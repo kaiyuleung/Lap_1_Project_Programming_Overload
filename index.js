@@ -193,10 +193,10 @@ async function appendPost() {
 
 		// todo Example appending post
 		
-		// <div id="scrollSpyNav" ...	//todo nav
+		// <span id="scrollSpyNavDir"></span>	//todo nav
 		// <a class="p-1 rounded" href="#post0">0</a> //?navA
 
-		// <div id="scrollSpy" ...		//todo dir
+		// <span id="scrollSpyDir"></span>		//todo dir
 		/*<div id="post0" class="row mb-2 px-4">	//?dirRow
 			<div class="container-fluid postPreview">	//?container
 				<div class="row">	//?r1

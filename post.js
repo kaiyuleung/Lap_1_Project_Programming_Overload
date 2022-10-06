@@ -17,12 +17,13 @@ function getId() {
 
 getId();
 
-function submitComment() {
+function submitComment(e) {
+	e.preventDefault();
 	// Get Elements
 	const newComment = document.querySelector("#new-comment").value;
 	console.log(newComment);
 	// Check character length
-	if (newComment > 220)
+	if (newComment.length > 220)
 		return window.alert("Sorry too long, enter less than 220 characters.");
 	// get form data
 	const commentData = {
@@ -32,7 +33,9 @@ function submitComment() {
 		commentBody: newComment,
 		commentDate: new Date().toLocaleDateString("en-GB"),
 		commentTime: new Date().toLocaleTimeString("en-GB"),
-		emoji: "",
+		gif: "",
+		like: 0,
+		dislike: 0,
 	};
 
 	sendCommentToBackend(commentData);
@@ -44,7 +47,7 @@ function submitComment() {
 
 async function sendCommentToBackend(commentData) {
 	try {
-		fetch(
+		await fetch(
 			`https://futureproof-journal.herokuapp.com/journal/${postId}/new-comment`,
 			{
 				method: "POST",
@@ -73,6 +76,13 @@ async function getAndSetSpecificJournal(id) {
 	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
 	gifPreview.src = data.gif.slice(0,4) == "http" ? data.gif : "./img/gifNotFound.jpg";
+	document.getElementById("commentCount").textContent = `Comments ${data.comments.length}`;
+	document.getElementById("emojiOneCount").textContent = `😀 ${data.emojiOne}`;
+	document.getElementById("emojiOneCount").setAttribute('data-id', postId);
+	document.getElementById("emojiTwoCount").textContent = `🔥 ${data.emojiTwo}`;
+	document.getElementById("emojiTwoCount").setAttribute('data-id', postId);
+	document.getElementById("emojiThreeCount").textContent = `❤ ${data.emojiThree}`;
+	document.getElementById("emojiThreeCount").setAttribute('data-id', postId);
 	// Get all comments
 	// document
 	// 	.getElementById("button-addon2")
@@ -108,12 +118,12 @@ async function appendComment(postId) {
 				const r1c2 = document.createElement("div");
 				const content = document.createElement("p");
 				const r1c3 = document.createElement("div");
-				const emoji = document.createElement("img");
-				const gif = document.createElement("img");
+				const commentIDGif = document.createElement("img");
 				const r2 = document.createElement("div");
 				const r2c1 = document.createElement("div");
-				const dope = document.createElement("button");
 				const r2c2 = document.createElement("div");
+				const like = document.createElement("button");
+				const dislike = document.createElement("button");
 				const r2c3 = document.createElement("div");
 				const timeDate = document.createElement("span");
 				const r2c4 = document.createElement("div");
@@ -142,27 +152,19 @@ async function appendComment(postId) {
 					"d-flex",
 					"justify-content-between"
 				);
-				emoji.src = "";
-				emoji.alt = "emoji";
-				emoji.height = "80";
-				emoji.width = "80";
-				gif.src = "";
-				gif.alt = "gif";
-				gif.height = "80";
-				gif.width = "80";
+				commentIDGif.id = `comment${comment.commentId}Gif`;
+				commentIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
+				commentIDGif.src = comment.gif.slice(0,4) == "http" ? comment.gif : "./img/gifNotFound.jpg";
+				commentIDGif.alt = "Gif Preview";
 				r2.classList.add("row", "pb-2");
-				r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-				dope.classList.add("btn", "btn-sm", "btn-outline-danger");
-				dope.textContent = "DOPE";
-				r2c2.classList.add(
-					"col",
-					"ms-2",
-					"reactionCount",
-					"d-flex",
-					"justify-content-start"
-				);
-				//!comment count and dope count//
-				r2c2.appendChild(document.createTextNode("Comments: 0, DOPE: 0"));
+				r2c1.classList.add('col-2');
+				r2c2.classList.add("col-4", "d-flex", "justify-content-around");
+				like.classList.add("btn", "btn-sm", "btn-outline-primary", "like-btn");
+				like.setAttribute('data-id', `${comment.commentId}`);
+				like.textContent = `Likes ${comment.like}`;
+				dislike.classList.add("btn", "btn-sm", "btn-outline-secondary", "dislike-btn");
+				dislike.setAttribute('data-id', `${comment.commentId}`);
+				dislike.textContent = `Dislikes ${comment.dislike}`;
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
@@ -181,12 +183,12 @@ async function appendComment(postId) {
 				r1.appendChild(r1c2);
 				r1c2.appendChild(content);
 				r1.appendChild(r1c3);
-				r1c3.appendChild(emoji);
-				r1c3.appendChild(gif);
+				r1c3.appendChild(commentIDGif);
 				container.appendChild(r2);
 				r2.appendChild(r2c1);
-				r2c1.appendChild(dope);
-				r2.appendChild(r2c2);
+				r2.appendChild(r2c2)
+				r2c2.appendChild(like);
+				r2c2.appendChild(dislike);
 				r2.appendChild(r2c3);
 				r2c3.appendChild(timeDate);
 				r2.appendChild(r2c4);
@@ -197,6 +199,11 @@ async function appendComment(postId) {
 	}
 
 	//todo Example Comment Entry
+
+	// <span id="scrollSpyNavDir"></span>	//todo nav
+	// <a class="p-1 rounded" href="#post0">0</a> //?navA
+
+	// <span id="scrollSpyDir"></span>		//todo dir
 	// <div class="row mb-2 px-4">  //?dirRow//
 	//     <div class="container-fluid comment">    //?container//
 	//         <div class="row">    //?r1//
@@ -212,15 +219,15 @@ async function appendComment(postId) {
 	//                 <p>I have a nice day too!</p>  //?content//
 	//             </div>
 	//             <div class="col-3 py-2 d-flex justify-content-between">  //?r1c3//
-	//                 <img src="" alt="emoji" height="80px" width="80px">  //?emoji//
-	//                 <img src="" alt="gif" height="80px" width="80px">    //?gif//
+	// 				<img id="commentIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview">	//?commentIDGif
 	//             </div>
 	//         </div>
 	//         <div class="row pb-2">   //?r2//
-	//             <div class="col-2 d-flex justify-content-center">    //?r2c1//
-	//                 <button class="btn btn-sm btn-outline-danger">DOPE</button>  //?dope//
-	//             </div>
-	//             <div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>  //?r2c2//
+	//             <div class="col-2"></div>    //?r2c1//
+	// 				<div class="col-4 d-flex justify-content-around">	//?r2c2
+	// 					<button class="btn btn-sm btn-outline-primary like-btn" data-id="ID">Likes x</button>	//?like
+	// 					<button class="btn btn-sm btn-outline-secondary dislike-btn" data-id="ID">Dislikes y</button>	//?dislike
+	// 				</div>
 	//             <div class="col d-flex justify-content-end"> //?r2c3//
 	//                 <span>14:21 03/Oct/2022</span>   //?timeDate//
 	//             </div>
@@ -231,6 +238,58 @@ async function appendComment(postId) {
 	//     </div>
 	// </div>
 }
+
+
+//Emojis Update
+for (let emoji of ["One", "Two", "Three"]){
+	setTimeout(() => {
+		const emojiBtn = document.querySelectorAll(`.emoji${emoji}-btn`);
+		emojiBtn.forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				const id = e.target.getAttribute("data-id");
+				emojiIncrementor(id, emoji);
+			});
+		});
+	}, 500);
+}
+	
+
+async function emojiIncrementor(id, emoji) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emoji${emoji}`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+//Like/Dislike Update
+for (let reaction of ["like", "dislike"]){
+	setTimeout(() => {
+		const reactionBtn = document.querySelectorAll(`${reaction}-btn`);
+		reactionBtn.forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				const id = e.target.getAttribute("data-id");
+				reactionIncrementor(id, reaction);
+			});
+		});
+	}, 500);
+}
+	
+
+async function reactionIncrementor(id, reaction) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/${reaction}`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
 
 const darkMode = document.querySelector("#darkMode");
 
