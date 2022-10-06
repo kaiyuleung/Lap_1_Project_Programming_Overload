@@ -10,8 +10,6 @@ html,body {height: 100%;}
 body {
 	min-width: 550px;
 	min-height: 450px;
-	max-height: 2048px;
-	max-width: 3090px;
 	background-color: var(--bg-minor);
 }
 
@@ -62,7 +60,7 @@ p{
 /* scrollspy */
 #scrollSpy, #scrollSpyNav{
 	overflow-y: scroll;
-	height: 500px !important;
+	height: 38rem;
 }
 
 /* !Front page */ 
@@ -82,7 +80,7 @@ p{
 #mainPage #toPost {
 	position: relative;
 	background-color: var(--bg-major);
-	height: 60%;
+	height: 30%;
 	width:100%;
 	font-family: "Nanum Gothic", sans-serif;
 }
