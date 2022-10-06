@@ -98,16 +98,14 @@ async function appendPost() {
 			const title = document.createElement("h5");
 			const content = document.createElement("p");
 			const r1c3 = document.createElement("div");
-			const postIDGif = document.createElement("img");
-			const r1c4 = document.createElement("div");
 			const view = document.createElement("a");
-			const postIDB1 = document.createElement("button");
-			const postIDB2 = document.createElement("button");
-			const postIDB3 = document.createElement("button");
+			const postIDGif = document.createElement("img");
 			const r2 = document.createElement("div");
 			const r2c1 = document.createElement("div");
-			const dope = document.createElement("div");
 			const r2c2 = document.createElement("div");
+			const postIDe1 = document.createElement("button");
+			const postIDe2 = document.createElement("button");
+			const postIDe3 = document.createElement("button");
 			const r2c3 = document.createElement("div");
 			const timeDate = document.createElement("span");
 			const r2c4 = document.createElement("div");
@@ -128,52 +126,37 @@ async function appendPost() {
 			userCardBody.classList.add("card-body", "p-1", "border-top");
 			username.classList.add("card-title", "m-0");
 			username.textContent = post.username;
-			r1c2.classList.add("col-5", "py-2");
+			r1c2.classList.add("col-7", "py-2");
 			// r1c2.style.width = "100px";
 			title.textContent = post.title;
 			content.textContent = post.content;
-			r1c3.classList.add('col-3', 'py-2');
-			postIDGif.id = `post${post.id}Gif`;
-			postIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
-			postIDGif.src = post.gif.slice(0,4) == "http" ? post.gif : "./img/gifNotFound.jpg";
-			postIDGif.alt = "Gif Preview";
-			r1c4.classList.add('col-2', 'mt-2', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-between');
+			r1c3.classList.add('col-3', 'mt-2', 'd-flex', 'flex-column', 'align-items-end', 'justify-content-between');
 			view.setAttribute("role", "button");
 			view.classList.add("btn", "btn-secondary");
 			// view.href = "./post.html";
 			view.style.height = "40px";
 			view.textContent = "View";
-			postIDB1.id = `post${post.id}B1`;
-			postIDB1.type = "button";
-			postIDB1.classList.add('btn', 'btn-outline-primary', 'btn-sm');
-			postIDB1.textContent = "Like it";
-			postIDB2.id = `post${post.id}B2`;
-			postIDB2.type = "button";
-			postIDB2.classList.add('btn', 'btn-outline-warning', 'btn-sm');
-			postIDB2.textContent = "WOW";
-			postIDB3.id = `post${post.id}B3`;
-			postIDB3.type = "button";
-			postIDB3.classList.add('btn', 'btn-outline-success', 'btn-sm');
-			postIDB3.textContent = "Feel u";
+			postIDGif.id = `post${post.id}Gif`;
+			postIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
+			postIDGif.src = post.gif.slice(0,4) == "http" ? post.gif : "./img/gifNotFound.jpg";
+			postIDGif.alt = "Gif Preview";
 			r2.classList.add("row", "py-2");
-			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
-			dope.textContent = "DOPE";
+			r2c1.classList.add("col-3", "ms-2", "reactionCount", "d-flex", "justify-content-start");
+			r2c1.textContent = `Comments ${post.comments.length}`;
 			r2c2.classList.add(
-				"col",
-				"ms-2",
-				"reactionCount",
+				"col-4",
 				"d-flex",
-				"justify-content-start"
+				"justify-content-around"
 			);
-			//!comment count and dope count//
-			r2c2.appendChild(
-				document.createTextNode(
-					`${post.comments.length > 1 ? "Comments: " : "Comment:"} ${
-						post.comments.length
-					}, DOPE: 0`
-				)
-			);
+			postIDe1.classList.add('btn', 'btn-sm', 'btn-outline-primary', 'emojiOne-btn');
+			postIDe1.setAttribute("data-id", post.id);
+			postIDe1.textContent = `😀 ${post.emojiOne}`;
+			postIDe2.classList.add('btn', 'btn-sm', 'btn-outline-success', 'emojiTwo-btn');
+			postIDe2.setAttribute("data-id", post.id);
+			postIDe2.textContent = `🔥 ${post.emojiTwo}`;
+			postIDe3.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'emojiThree-btn');
+			postIDe3.setAttribute("data-id", post.id);
+			postIDe3.textContent = `❤ ${post.emojiThree}`;
 			r2c3.classList.add("col", "d-flex", "justify-content-end");
 			timeDate.textContent = `${post.time.slice(0, 5)} ${post.date}`;
 			r2c4.classList.add("col-1", "d-flex", "justify-content-end");
@@ -193,16 +176,14 @@ async function appendPost() {
 			r1c2.appendChild(title);
 			r1c2.appendChild(content);
 			r1.appendChild(r1c3);
+			r1c3.appendChild(view);
 			r1c3.appendChild(postIDGif);
-			r1.appendChild(r1c4);
-			r1c4.appendChild(view);
-			r1c4.appendChild(postIDB1);
-			r1c4.appendChild(postIDB2);
-			r1c4.appendChild(postIDB3);
 			container.appendChild(r2);
 			r2.appendChild(r2c1);
-			r2c1.appendChild(dope);
 			r2.appendChild(r2c2);
+			r2c2.appendChild(postIDe1);
+			r2c2.appendChild(postIDe2);
+			r2c2.appendChild(postIDe3);
 			r2.appendChild(r2c3);
 			r2c3.appendChild(timeDate);
 			r2.appendChild(r2c4);
@@ -245,11 +226,11 @@ async function appendPost() {
 					</div>
 				</div>
 				<div class="row py-2">	//?r2
-					<div class="col-3 ms-2 reactionCount d-flex justify-content-start">comment c</div>	//?r2c1
+					<div class="col-3 ms-2 reactionCount d-flex justify-content-start">Comment c</div>	//?r2c1
 					<div class="col-4 d-flex justify-content-around">	//?r2c2
-						<div class="btn btn-sm btn-outline-primary emojiOne-btn" data-id="ID">😀 x</div>	//?e1
-						<div class="btn btn-sm btn-outline-success emojiTwo-btn" data-id="ID">🔥 y</div>	//?e2
-						<div class="btn btn-sm btn-outline-danger emojiThree-btn" data-id="ID">❤ z</div>	//?e3
+						<button class="btn btn-sm btn-outline-primary emojiOne-btn" data-id="ID">😀 x</button>	//?postIDe1
+						<button class="btn btn-sm btn-outline-success emojiTwo-btn" data-id="ID">🔥 y</button>	//?postIDe2
+						<button class="btn btn-sm btn-outline-danger emojiThree-btn" data-id="ID">❤ z</button>	//?postIDe3
 					</div>
 					<div class="col d-flex justify-content-end">	//?r2c3
 						<span>14:21 03/Oct/2022</span>	//?timeDate
