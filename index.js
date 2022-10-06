@@ -31,24 +31,13 @@ async function submitPost(e) {
 		content: e.target.postContent.value,
 		username: "",
 		icon: "",
-		emoji: [
-			{
-				emojiUsed: false,
-				emojiOne: 0,
-			},
-			{
-				emojiUsed: false,
-				emojiTwo: 0,
-			},
-			{
-				emojiUsed: false,
-				emojiThree: 0,
-			},
-		],
+		emojiOne: 0,
+		emojiTwo: 0,
+		emojiThree: 0,
 		gif: e.target.gif.value,
 		date: todaysDate,
 		time: time,
-		comments: [{}],
+		comments: [],
 	};
 	sendToBackend(postData);
 	appendPost();
@@ -148,12 +137,15 @@ async function appendPost() {
 				"d-flex",
 				"justify-content-around"
 			);
+			// postIDe1.id = `post${post.id}e1`
 			postIDe1.classList.add('btn', 'btn-sm', 'btn-outline-primary', 'emojiOne-btn');
 			postIDe1.setAttribute("data-id", post.id);
 			postIDe1.textContent = `😀 ${post.emojiOne}`;
+			// postIDe2.id = `post${post.id}e2`
 			postIDe2.classList.add('btn', 'btn-sm', 'btn-outline-success', 'emojiTwo-btn');
 			postIDe2.setAttribute("data-id", post.id);
 			postIDe2.textContent = `🔥 ${post.emojiTwo}`;
+			// postIDe3.id = `post${post.id}e3`
 			postIDe3.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'emojiThree-btn');
 			postIDe3.setAttribute("data-id", post.id);
 			postIDe3.textContent = `❤ ${post.emojiThree}`;
@@ -228,9 +220,9 @@ async function appendPost() {
 				<div class="row py-2">	//?r2
 					<div class="col-3 ms-2 reactionCount d-flex justify-content-start">Comment c</div>	//?r2c1
 					<div class="col-4 d-flex justify-content-around">	//?r2c2
-						<button class="btn btn-sm btn-outline-primary emojiOne-btn" data-id="ID">😀 x</button>	//?postIDe1
-						<button class="btn btn-sm btn-outline-success emojiTwo-btn" data-id="ID">🔥 y</button>	//?postIDe2
-						<button class="btn btn-sm btn-outline-danger emojiThree-btn" data-id="ID">❤ z</button>	//?postIDe3
+						<button id="postIDe1" class="btn btn-sm btn-outline-primary emojiOne-btn" data-id="ID">😀 x</button>	//?postIDe1
+						<button id="postIDe2" class="btn btn-sm btn-outline-success emojiTwo-btn" data-id="ID">🔥 y</button>	//?postIDe2
+						<button id="postIDe3" class="btn btn-sm btn-outline-danger emojiThree-btn" data-id="ID">❤ z</button>	//?postIDe3
 					</div>
 					<div class="col d-flex justify-content-end">	//?r2c3
 						<span>14:21 03/Oct/2022</span>	//?timeDate
@@ -246,6 +238,33 @@ async function appendPost() {
 	}
 }
 appendPost();
+
+//Emojis Update
+
+for (let emoji of ["One", "Two", "Three"]){
+	setTimeout(() => {
+		const emojiBtn = document.querySelectorAll(`.emoji${emoji}-btn`);
+		emojiBtn.forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				const id = e.target.getAttribute("data-id");
+				emojiIncrementor(id, emoji);
+			});
+		});
+	}, 500);
+}
+	
+
+async function emojiIncrementor(id, emoji) {
+	try {
+		await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${id}/emoji${emoji}`
+		);
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
 
 // function myFunction() {
 // 	// const darkModeBtn = document.getElementById("darkModeBtn")
