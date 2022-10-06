@@ -235,30 +235,27 @@ async function appendPost() {
 							</div>
 						</div>
 					</div>
-					<div class="col-5 py-2">	//?r1c2
+					<div class="col-7 py-2">	//?r1c2
 						<h5>Happy Day!</h5>	//?title
 						<p>Today, I ...<br>...</p>	//?content
 					</div>
-					<div class="col-3 py-2">	//?r1c3
-						<img id="postIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >	//?postIDGif
-					</div>
-					<div class="col-2 mt-2 d-flex flex-column align-items-center justify-content-between">	//?r1c4
+					<div class="col-3 mt-2 d-flex flex-column align-items-end justify-content-between">	//?r1c3
 						<a role="button" class="btn btn-secondary" href="./post.html" style="height:40px;">View</a>	//?view
-						<button id="postIDB1" type="button" class="btn btn-outline-primary btn-sm">Like it</button>	//?postIDB1
-						<button id="postIDB2" type="button" class="btn btn-outline-warning btn-sm">WOW</button>	//?postIDB2
-						<button id="postIDB3" type="button" class="btn btn-outline-success btn-sm">Feel u</button>	//?postIDB3
+						<img id="postIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >	//?postIDGif
 					</div>
 				</div>
 				<div class="row py-2">	//?r2
-					<div class="col-2 d-flex justify-content-center">	//?r2c1
-						<button class="btn btn-sm btn-outline-danger">DOPE</button>	//?dope
+					<div class="col-3 ms-2 reactionCount d-flex justify-content-start">comment c</div>	//?r2c1
+					<div class="col-4 d-flex justify-content-around">	//?r2c2
+						<div class="btn btn-sm btn-outline-primary emojiOne-btn" data-id="ID">😀 x</div>	//?e1
+						<div class="btn btn-sm btn-outline-success emojiTwo-btn" data-id="ID">🔥 y</div>	//?e2
+						<div class="btn btn-sm btn-outline-danger emojiThree-btn" data-id="ID">❤ z</div>	//?e3
 					</div>
-					<div class="col ms-2 reactionCount d-flex justify-content-start">comment x DOPE y</div>	//?r2c2
 					<div class="col d-flex justify-content-end">	//?r2c3
 						<span>14:21 03/Oct/2022</span>	//?timeDate
 					</div>
 					<div class="col-1 d-flex justify-content-end">	//?r2c4
-						<span>id</span>	//?id
+						<span>ID</span>	//?id
 					</div>
 				</div>
 			</div>
