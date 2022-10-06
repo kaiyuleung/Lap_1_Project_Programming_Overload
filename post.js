@@ -302,6 +302,8 @@ function switchDarkMode() {
 	const post = document.getElementById("post");
 	const card = document.querySelector(".card")
 	const commentSection = document.getElementById("commentSection")
+	const submitBtn = document.getElementById("button-addon2")
+	const newComment = document.getElementById("new-comment")
 
 
 	if (post.style.left === "1px") {
@@ -310,7 +312,7 @@ function switchDarkMode() {
 		post.style.right = "1px";
 
 		//body
-		document.body.style.backgroundColor = "tan";
+		document.body.style.backgroundColor = "white";
 		document.body.style.color = "black";
 
 		// borders 
@@ -318,7 +320,9 @@ function switchDarkMode() {
 		//backgrounds
 		post.style.backgroundColor = "pink";
 		card.style.backgroundColor = "white";
-		commentSection.style.backgroundColor = "tan";
+		commentSection.style.backgroundColor = "white";
+		submitBtn.classList = "btn btn-outline-secondary";
+		newComment.style.backgroundColor = "white";
 
 		//letters
 
@@ -328,8 +332,10 @@ function switchDarkMode() {
 		post.style.right = "unset";
 
 		//body
+		post.style.backgroundColor = "black";
 		document.body.style.backgroundColor = "grey";
-		document.body.style.color = "blue";
+		document.body.style.color = "black";
+		submitBtn.classList = "btn btn-outline-light";
 
 		// borders
 
@@ -337,7 +343,8 @@ function switchDarkMode() {
 		// background colors
 		post.style.backgroundColor = "grey"
 		card.style.backgroundColor = "lightgrey";
-		commentSection.style.backgroundColor = "black";
+		commentSection.style.backgroundColor = "grey";
+		newComment.style.backgroundColor = "black";
 		
 		//letters
 	}

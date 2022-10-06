@@ -1,7 +1,7 @@
 /* !Root */
 :root {
 	--bg-major: pink;
-	--bg-minor: rgb(255, 216, 144);
+	--bg-minor: white;
 	/* --height-sectionTitle: 42px; */
 }
 
@@ -12,7 +12,7 @@ body {
 	min-height: 450px;
 	max-height: 2048px;
 	max-width: 3090px;
-	background-color: tan;
+	background-color: var(--bg-minor);
 }
 
 .card {
@@ -76,17 +76,26 @@ p{
 
 
 /* !Main.html */
+#makePost {
+	font-family: "Marck Script", cursive;
+}
 #mainPage #toPost {
 	position: relative;
 	background-color: var(--bg-major);
 	height: 60%;
 	width:100%;
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+#postAll {
+	font-family: "Marck Script", cursive;
 }
 
 #mainPage #allPosts {
-	/* background-color: tan; */
+	/* background-color: white; */
 	height: 70%;
 	max-height: 70%;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 #toPost #toPostTitle{
@@ -99,26 +108,48 @@ p{
 
 
 .postPreview {
-	background-color: wheat;
+	/* background-color: white; */
 	border: 1px solid black;
 	border-radius: 5px;
 	/* background-color: wheat; */
 }
 
+.p-1 {
+	text-decoration: none;
+	color: black;
+}
+
+.p-1:hover {
+	background-color: grey;
+	color: white;
+}
+
+::placeholder {
+	color: black;
+}
+
+
 /* !Post.html */
 #postPage #post{
     background-color: var(--bg-major);
-    height: 27%;
+    height: 50%;
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+#commentsAll {
+	font-family: "Marck Script", cursive;
 }
 
 #postPage #commentSection{
     background-color: var(--bg-minor);
     height: 60%;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 #postPage #postComment{
-    background-color: black;
+    /* background-color: black; */
     height: 13%;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 #postContent {
@@ -128,7 +159,6 @@ p{
 .comment {
 	border: 1px solid black;
 	border-radius: 5px;
-	background-color: wheat;
 }
 
 .commentContent {

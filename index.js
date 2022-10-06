@@ -293,32 +293,33 @@ function switchDarkMode() {
 	const postContent = document.getElementById("postContent")
 	const reactionCount = document.querySelector(".reactionCount")
 	const toPostSubmit = document.getElementById("toPostSubmit")
+	const makePost = document.getElementById("makePost")
 
 	if (toPostTitle.style.left === "1px") {
 		toPostTitle.style.color = "grey";
 		toPostTitle.style.left = "unset";
 		toPostTitle.style.right = "1px";
 		// borders 
-		postTitle.style.border = "1px solid grey";
+		postTitle.style.border = "1px solid white";
 		postContent.style.border = "solid 1px black"
 		//backgrounds
-		document.body.style.backgroundColor = "tan";
+		document.body.style.backgroundColor = "white";
 		document.body.style.color = "black";
 
 		toPost.style.backgroundColor = "lightpink";  // make a post form --- works
-		postPreview.style.backgroundColor = "tan"; //ONLY 1st comment -- works
+		postPreview.style.backgroundColor = "white"; //ONLY 1st comment -- works
 		firstCard.style.backgroundColor = "white" //only 1st card -- works 
 		postTitle.style.backgroundColor = "white" //Title in "make a post"
 		postContent.style.backgroundColor = "white" //share your story
-		reactionCount.style.backgroundColor = "tan" //1st comment reaction count
-		toPostSubmit.classList = "btn btn-outline-secondary" //submit button 
+		reactionCount.style.backgroundColor = "white" //1st comment reaction count
+		toPostSubmit.classList = "btn btn-outline-dark" //submit button 
 
 		//letters
 		toPost.style.color = "black";
 		postPreview.style.color = "black";
 		firstCard.style.color = "black";
-		postTitle.style.color = "black";
-		postContent.style.color = "black"
+		postContent.style.color = "black";
+		makePost.style.color = "black";
 	} else {
 		toPostTitle.style.color = "white";
 		toPostTitle.style.left = "1px";
@@ -328,7 +329,7 @@ function switchDarkMode() {
 		postContent.style.border = "solid 1px white"
 		// background colors
 		document.body.style.backgroundColor = "darkgrey";
-		document.body.style.color = "lightgrey";
+		document.body.style.color = "black";
 		
 		toPost.style.backgroundColor = "black"; //make a post form 
 		postPreview.style.backgroundColor = "darkgrey"; // ONLY 1st comment
@@ -340,7 +341,9 @@ function switchDarkMode() {
 
 		//letters
 		toPost.style.color = "white";
-		postPreview.style.color = "lightgrey";
+		postPreview.style.color = "black";
 		firstCard.style.color = "white";
+		makePost.style.color = "white";
+
 	}
 }
