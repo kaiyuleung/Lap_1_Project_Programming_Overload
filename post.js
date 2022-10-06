@@ -6,6 +6,7 @@ const date = document.querySelector("#journal-date");
 const idElm = document.querySelector("#journal-id");
 const username = document.querySelector("#journal-username");
 const postId = getId();
+const gifPreview = document.getElementById('gifPreview');
 
 // Get  Id from local storage
 function getId() {
@@ -69,8 +70,9 @@ async function getAndSetSpecificJournal(id) {
 	content.textContent = data.content;
 	icon.src = data.icon;
 	date.textContent = data.time + " " + data.date;
-	idElm.textContent = `ID: ${data.id}`;
+	idElm.textContent = `${data.id}`;
 	username.textContent = data.username;
+	gifPreview.src = data.gif.slice(0,4) == "http" ? data.gif : "./img/gifNotFound.jpg";
 	// Get all comments
 	// document
 	// 	.getElementById("button-addon2")

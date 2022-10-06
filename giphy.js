@@ -13,7 +13,14 @@ function getGifs(e){
     fetch(url, { mode: "cors" })
         .then(r => r.json())
         .then(x => appendGifs(x.data))
+        // .then(y => {
+        //     for (const radio of document.querySelectorAll('input[name="gif"]')){
+        //         radio.addEventListener('click', e => console.log(e.target.value))
+        //     }
+        // })
         .catch(console.warn)
+
+    
 };
 
 function appendGifs(gifs){

@@ -1,4 +1,15 @@
 document.getElementById("toPostContent").addEventListener("submit", submitPost);
+document.getElementById('GiphySearch').addEventListener('click',x =>{
+	setTimeout(() => {
+		for (const radio of document.querySelectorAll('input[name="gif"]')){
+				radio.addEventListener('click', e => {
+					const gifPreview = document.getElementById("gifPreview");
+					gifPreview.src = gifPreview.src.slice(0,4) == "http" ? e.target.value : "./img/gifNotFound.jpg";
+				})
+			}
+	}, 200);
+});
+
 
 async function submitPost(e) {
 	// Prevent Refresh
@@ -34,7 +45,7 @@ async function submitPost(e) {
 				emojiThree: 0,
 			},
 		],
-		gif: e.target.gif.value, //!This is the selected gif's URL
+		gif: e.target.gif.value,
 		date: todaysDate,
 		time: time,
 		comments: [{}],
@@ -87,7 +98,12 @@ async function appendPost() {
 			const title = document.createElement("h5");
 			const content = document.createElement("p");
 			const r1c3 = document.createElement("div");
+			const postIDGif = document.createElement("img");
+			const r1c4 = document.createElement("div");
 			const view = document.createElement("a");
+			const postIDB1 = document.createElement("button");
+			const postIDB2 = document.createElement("button");
+			const postIDB3 = document.createElement("button");
 			const r2 = document.createElement("div");
 			const r2c1 = document.createElement("div");
 			const dope = document.createElement("div");
@@ -112,17 +128,34 @@ async function appendPost() {
 			userCardBody.classList.add("card-body", "p-1", "border-top");
 			username.classList.add("card-title", "m-0");
 			username.textContent = post.username;
-			r1c2.classList.add("col-8", "py-2");
+			r1c2.classList.add("col-5", "py-2");
 			// r1c2.style.width = "100px";
 			title.textContent = post.title;
 			content.textContent = post.content;
-			r1c3.classList.add("col-2", "mt-2", "d-flex", "justify-content-end");
+			r1c3.classList.add('col-3', 'py-2');
+			postIDGif.id = `post${post.id}Gif`;
+			postIDGif.classList.add('img-thumbnail', 'card', 'mb-3');
+			postIDGif.src = post.gif.slice(0,4) == "http" ? post.gif : "./img/gifNotFound.jpg";
+			postIDGif.alt = "Gif Preview";
+			r1c4.classList.add('col-2', 'mt-2', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-between');
 			view.setAttribute("role", "button");
 			view.classList.add("btn", "btn-secondary");
 			// view.href = "./post.html";
 			view.style.height = "40px";
 			view.textContent = "View";
-			r2.classList.add("row", "pb-2");
+			postIDB1.id = `post${post.id}B1`;
+			postIDB1.type = "button";
+			postIDB1.classList.add('btn', 'btn-outline-primary', 'btn-sm');
+			postIDB1.textContent = "Like it";
+			postIDB2.id = `post${post.id}B2`;
+			postIDB2.type = "button";
+			postIDB2.classList.add('btn', 'btn-outline-warning', 'btn-sm');
+			postIDB2.textContent = "WOW";
+			postIDB3.id = `post${post.id}B3`;
+			postIDB3.type = "button";
+			postIDB3.classList.add('btn', 'btn-outline-success', 'btn-sm');
+			postIDB3.textContent = "Feel u";
+			r2.classList.add("row", "py-2");
 			r2c1.classList.add("col-2", "d-flex", "justify-content-center");
 			dope.classList.add("btn", "btn-sm", "btn-outline-danger");
 			dope.textContent = "DOPE";
@@ -160,7 +193,12 @@ async function appendPost() {
 			r1c2.appendChild(title);
 			r1c2.appendChild(content);
 			r1.appendChild(r1c3);
-			r1c3.appendChild(view);
+			r1c3.appendChild(postIDGif);
+			r1.appendChild(r1c4);
+			r1c4.appendChild(view);
+			r1c4.appendChild(postIDB1);
+			r1c4.appendChild(postIDB2);
+			r1c4.appendChild(postIDB3);
 			container.appendChild(r2);
 			r2.appendChild(r2c1);
 			r2c1.appendChild(dope);
@@ -197,15 +235,21 @@ async function appendPost() {
 							</div>
 						</div>
 					</div>
-					<div class="col-8 py-2">	//?r1c2
+					<div class="col-5 py-2">	//?r1c2
 						<h5>Happy Day!</h5>	//?title
 						<p>Today, I ...<br>...</p>	//?content
 					</div>
-					<div class="col-2 mt-2 d-flex justify-content-end">	//?r1c3
-						<a role="button" class="btn btn-secondary" href="./post.html" style="height:3em;">View</a>	//?view
+					<div class="col-3 py-2">	//?r1c3
+						<img id="postIDGif" class="img-thumbnail card mb-3" src="./img/gifNotFound.jpg" alt="Gif Preview" >	//?postIDGif
+					</div>
+					<div class="col-2 mt-2 d-flex flex-column align-items-center justify-content-between">	//?r1c4
+						<a role="button" class="btn btn-secondary" href="./post.html" style="height:40px;">View</a>	//?view
+						<button id="postIDB1" type="button" class="btn btn-outline-primary btn-sm">Like it</button>	//?postIDB1
+						<button id="postIDB2" type="button" class="btn btn-outline-warning btn-sm">WOW</button>	//?postIDB2
+						<button id="postIDB3" type="button" class="btn btn-outline-success btn-sm">Feel u</button>	//?postIDB3
 					</div>
 				</div>
-				<div class="row pb-2">	//?r2
+				<div class="row py-2">	//?r2
 					<div class="col-2 d-flex justify-content-center">	//?r2c1
 						<button class="btn btn-sm btn-outline-danger">DOPE</button>	//?dope
 					</div>
