@@ -109,7 +109,8 @@ async function appendComment(postId) {
 				const gif = document.createElement("img");
 				const r2 = document.createElement("div");
 				const r2c1 = document.createElement("div");
-				const dope = document.createElement("button");
+				const like = document.createElement("button");
+				const dislike = document.createElement("button");
 				const r2c2 = document.createElement("div");
 				const r2c3 = document.createElement("div");
 				const timeDate = document.createElement("span");
@@ -145,8 +146,22 @@ async function appendComment(postId) {
 				gif.width = "80";
 				r2.classList.add("row", "pb-2");
 				r2c1.classList.add("col-2", "d-flex", "justify-content-center");
-				dope.classList.add("btn", "btn-sm", "btn-outline-danger");
-				dope.textContent = "DOPE";
+				like.classList.add("btn", "btn-sm", "btn-outline-primary");
+				like.textContent = "Like";
+				r2c2.classList.add(
+					"col",
+					"ms-2",
+					"reactionCount",
+					"d-flex",
+					"justify-content-start"
+				);
+				//
+				like.addEventListener("click", (e) => {
+					likeIncrement(comment.commentId);
+				});
+				// dislike btn
+				dislike.classList.add("btn", "btn-sm", "btn-outline-danger");
+				dislike.textContent = "Dislike";
 				// dope.textContent = "😀";
 				r2c2.classList.add(
 					"col",
@@ -155,16 +170,22 @@ async function appendComment(postId) {
 					"d-flex",
 					"justify-content-start"
 				);
-				//!comment count and dope count//
+				//
+				dislike.addEventListener("click", (e) => {
+					dislikeIncrement(comment.commentId);
+				});
+
+				//!comment count and dope count//dope.
 				r2c2.appendChild(
-					document.createTextNode("Comments: 0 - 😀 0 🔥 0 ❤ 0")
+					document.createTextNode(
+						`Comments: 0 - Likes: ${comment.like}, Dislikes:${comment.dislike}`
+					)
 				);
 				r2c3.classList.add("col", "d-flex", "justify-content-end");
 				timeDate.textContent = comment.commentTime + " " + comment.commentDate;
 				r2c4.classList.add("col-1", "d-flex", "justify-content-end");
 				id.textContent = `${comment.commentId}`;
 				id.classList.add("dopeId");
-				console.log(comment);
 
 				// Append elements
 				dir.after(dirRow);
@@ -182,7 +203,8 @@ async function appendComment(postId) {
 				r1c3.appendChild(gif);
 				container.appendChild(r2);
 				r2.appendChild(r2c1);
-				r2c1.appendChild(dope);
+				r2c1.appendChild(like);
+				r2c1.appendChild(dislike);
 				r2.appendChild(r2c2);
 				r2.appendChild(r2c3);
 				r2c3.appendChild(timeDate);
@@ -253,6 +275,33 @@ async function emoJiThreeIncrementor(postId) {
 		);
 		const data = await res.text();
 		console.log(data);
+
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+
+// Like
+async function likeIncrement(commentId) {
+	try {
+		const res = await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${commentId}/like`
+		);
+		const data = await res.json();
+
+		setTimeout(() => {
+			location.reload();
+		}, 200);
+	} catch (error) {}
+}
+// Dislike
+async function dislikeIncrement(commentId) {
+	try {
+		const res = await fetch(
+			`https://futureproof-journal.herokuapp.com/journal/${commentId}/dislike`
+		);
+		const data = await res.json();
 
 		setTimeout(() => {
 			location.reload();
