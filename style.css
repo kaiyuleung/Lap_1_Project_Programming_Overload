@@ -77,7 +77,7 @@ p{
 #mainPage #toPost {
 	position: relative;
 	background-color: var(--bg-major);
-	height: 60%;
+	height: 30%;
 	width:100%;
 }
 
