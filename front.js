@@ -10,11 +10,9 @@ function switchDarkMode() {
 	const username = document.getElementById("usernameInput")
 
 	if (frontPage.style.left === "1px") {
-		frontPage.style.color = "grey";
+		frontPage.style.color = "black";
 		frontPage.style.left = "unset";
 		frontPage.style.right = "1px";
-	
-	
 		//backgrounds
 		document.body.style.backgroundColor = "white";
 		document.body.style.color = "black";
@@ -25,8 +23,8 @@ function switchDarkMode() {
 		frontPage.style.color = "white";
 		frontPage.style.left = "1px";
 		frontPage.style.right = "unset";
-		// styles
-		document.body.style.backgroundColor = "darkgrey";
+		// backgrounds
+		document.body.style.backgroundColor = "lightgrey";
 		document.body.style.color = "white";
 		frontPage.style.backgroundColor = "darkgrey"
 		username.classList = "form-control bg-dark"

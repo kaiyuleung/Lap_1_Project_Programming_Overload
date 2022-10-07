@@ -310,6 +310,7 @@ function switchDarkMode() {
 	const commentSection = document.getElementById("commentSection")
 	const submitBtn = document.getElementById("button-addon2")
 	const newComment = document.getElementById("new-comment")
+	const postContent = document.getElementById("postContent")
 
 
 	if (post.style.left === "1px") {
@@ -322,6 +323,7 @@ function switchDarkMode() {
 		document.body.style.color = "black";
 
 		// borders 
+		postContent.style.border = "solid 1px black";
 
 		//backgrounds
 		post.style.backgroundColor = "pink";
@@ -331,6 +333,7 @@ function switchDarkMode() {
 		newComment.style.backgroundColor = "white";
 
 		//letters
+		postContent.style.color = "black";
 
 	} else {
 		post.style.color = "white";
@@ -344,14 +347,15 @@ function switchDarkMode() {
 		submitBtn.classList = "btn btn-outline-light";
 
 		// borders
-
+		postContent.style.border = "solid 1px white";
 
 		// background colors
-		post.style.backgroundColor = "grey"
+		post.style.backgroundColor = "black"
 		card.style.backgroundColor = "lightgrey";
-		commentSection.style.backgroundColor = "grey";
+		commentSection.style.backgroundColor = "darkgrey";
 		newComment.style.backgroundColor = "black";
 		
 		//letters
+		postContent.style.color = "white";
 	}
 }
